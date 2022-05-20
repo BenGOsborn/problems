@@ -19,22 +19,28 @@ def graph_to_dict(graph):
     dic = {}
 
     for pair in graph:
-        if str(pair[0]) in dic:
-            dic[str(pair[0])].append(str(pair[1]))
+        if pair[0] in dic:
+            dic[pair[0]].append(pair[1])
         else:
-            dic[str(pair[0])] = [str(pair[1])]
+            dic[pair[0]] = [pair[1]]
     
     return dic
 
 if __name__ == "__main__":
-    # elem = "a"
+    # Test case 1
+    elem = "a"
     # dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"], "e": ["f"]}
-    # dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"]}
+    dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"]}
 
-    elem = "2"
-    graph = [[1, 0], [2, 0], [3, 1], [3, 2]]
+    seen = {}
+    solved = {}
+
+    print(find(elem, dep, seen, solved))
+
+    # Test case 2 (different format)
+    elem = "a"
+    graph = [["a", "b"], ["b", "c"], ["d", "c"], ["b", "d"], ["f", "e"], ["a", "e"], ["b", "f"]]
     dep = graph_to_dict(graph)
-    # print(dep)
 
     seen = {}
     solved = {}
