@@ -49,19 +49,32 @@ def build_dependency_chain(tuple):
     
     return dic
 
+def find(elem, dep, seen, solved, out):
+    seen[elem] = True
+
+    if elem in dep:
+        for item in dep[elem]:
+            if item in solved and solved[item] == True:
+                continue;
+            elif item in seen and seen[item] == True:
+                raise Exception("Loop exists")
+            else:
+                find(item, dep, seen, solved, out)
+
+    solved[elem] = True
+    
+    out.append(elem)
+
 def main():
     parsed = parse(tsk)
     out = find_changed(parsed, changed)
+    dep = build_dependency_chain(parsed)
 
-    # **** So currently, we have got all of the tasks that need to be performed for the update, and now we need to figure out any dependencies that need to be run
-    # **** We will just get the build dependencies for each one, and not add it in if it has already been added
-    # **** We should not add dependencies to the list that do not include any file changes ? (ok !)
+    # **** So now we need to create a set, go through and add everything to it, and then remove what we dont need
 
-    # **** So what I am thinking is build a dependency graph for all of them, concatenate them together, and then remove anything that is not needed ?
-
-    print(parsed)
-    print(out)
-    print(build_dependency_chain(parsed))
+    print("Parsed", parsed)
+    print("Out", out)
+    print("Dep", dep)
 
 if __name__ == "__main__":
     main()
