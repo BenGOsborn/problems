@@ -1,23 +1,23 @@
 # Basically we are going to take the element we initially have, look at its dependencies, and then for all of its dependencies, get the dependencies of its dependenies concatenated
 
 def find(elem, dep, seen, solved):
-    out = elem + " "
+    out = ""
     seen[elem] = True
 
     if elem in dep:
         for item in dep[elem]:
             if item in solved and solved[item] == True:
-                out += item + " "
+                continue;
             elif item in seen and seen[item] == True:
                 raise Exception("Loop exists")
             else:
                 out += find(item, dep, seen, solved) + " "
 
-    # print(elem, dep, seen, solved)
+    # **** Now I need some seperate case for if I have already seen it 
 
     solved[elem] = True
     
-    return out
+    return out + " " + elem
 
 
 if __name__ == "__main__":
