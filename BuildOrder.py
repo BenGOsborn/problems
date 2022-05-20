@@ -1,7 +1,7 @@
 # Basically we are going to take the element we initially have, look at its dependencies, and then for all of its dependencies, get the dependencies of its dependenies concatenated
 
 def find(elem, dep, seen, solved):
-    out = ""
+    out = elem + " "
     seen[elem] = True
 
     if elem in dep:
@@ -10,8 +10,10 @@ def find(elem, dep, seen, solved):
                 out += item + " "
             elif item in seen and seen[item] == True:
                 raise Exception("Loop exists")
-            else:
-                out += find(item, dep, seen, solved) + " "
+            # else:
+            #     out += find(item, dep, seen, solved) + " "
+
+    print(elem, dep, seen, solved)
 
     solved[elem] = True
     
