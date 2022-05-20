@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     # Test case 2 (different format)
     elem = "a"
-    graph = [["a", "b"], ["b", "c"], ["d", "c"], ["b", "d"], ["f", "e"], ["a", "e"], ["b", "f"]]
+    graph = [["a", "b"], ["b", "f"], ["b", "c"], ["b", "d"], ["d", "c"], ["f", "e"], ["a", "e"]]
     dep = graph_to_dict(graph)
 
     seen = {}
