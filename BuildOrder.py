@@ -22,7 +22,8 @@ def find(elem, dep, seen, solved):
 
 if __name__ == "__main__":
     elem = "a"
-    dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"]}
+    dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"], "e": ["f"]}
+    # dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"]}
     seen = {}
     solved = {}
 
