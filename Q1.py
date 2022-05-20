@@ -1,5 +1,6 @@
 # **** So basically, we need to parse the initial file, and then we need to loop through the changed and see what task the file corresponds to
 
+
 tsk = [
     'task: taskA', 'files: foo.txt', 'deps: taskB taskC', '',
     'task: taskB', 'files: foo.txt', 'deps: taskD', '',
@@ -40,14 +41,27 @@ def find_changed(parsed, changed):
     
     return tasks
 
-# **** Now I want to make some sort of dependency list from our items that we can then go through and figure out the dependency build order
+def build_dependency_chain(tuple):
+    dic = {}
+    
+    for tup in tuple:
+        dic[tup[0]] = tup[2]
+    
+    return dic
 
 def main():
     parsed = parse(tsk)
     out = find_changed(parsed, changed)
 
+    # **** So currently, we have got all of the tasks that need to be performed for the update, and now we need to figure out any dependencies that need to be run
+    # **** We will just get the build dependencies for each one, and not add it in if it has already been added
+    # **** We should not add dependencies to the list that do not include any file changes ? (ok !)
+
+    # **** So what I am thinking is build a dependency graph for all of them, concatenate them together, and then remove anything that is not needed ?
+
     print(parsed)
     print(out)
+    print(build_dependency_chain(parsed))
 
 if __name__ == "__main__":
     main()
