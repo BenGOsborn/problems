@@ -3,15 +3,15 @@
 tsk = [
   "task: taskA",
   "files: lib/foo.txt lib/bar.txt",
-  "deps:",
+  "deps: taskA",
   "",
   "task: taskB",
   "files: src/baz.txt",
-  "deps:",
+  "deps: taskB",
   "",
   "task: taskC",
   "files: README.md",
-  "deps:",
+  "deps: taskC",
   ""
 ]
 
@@ -26,12 +26,15 @@ def parse_task(task):
 def parse_files(files):
     return files.split(" ")[1:]
 
+def parse_deps(deps):
+    return deps.split(" ")[1:]
+
 def parse(raw):
     tups = []
 
     i = 0
     while i < len(raw):
-        tups.append((parse_task(raw[i]), parse_files(raw[i + 1]), [])); # Keep the dependencies as empty for now
+        tups.append((parse_task(raw[i]), parse_files(raw[i + 1]), parse_deps(raw[i + 2]))); # Keep the dependencies as empty for now
         i += 4
     
     return tups
@@ -50,6 +53,7 @@ def main():
     parsed = parse(tsk)
     out = find_changed(parsed, changed)
 
+    print(parsed)
     print(out)
 
 if __name__ == "__main__":
