@@ -1,23 +1,14 @@
 # **** So basically, we need to parse the initial file, and then we need to loop through the changed and see what task the file corresponds to
 
 tsk = [
-  "task: taskA",
-  "files: lib/foo.txt lib/bar.txt",
-  "deps: taskA",
-  "",
-  "task: taskB",
-  "files: src/baz.txt",
-  "deps: taskB",
-  "",
-  "task: taskC",
-  "files: README.md",
-  "deps: taskC",
-  ""
+    'task: taskA', 'files: foo.txt', 'deps: taskB taskC', '',
+    'task: taskB', 'files: foo.txt', 'deps: taskD', '',
+    'task: taskC', 'files: foo.txt', 'deps: taskD', '',
+    'task: taskD', 'files: foo.txt', 'deps:', ''
 ]
 
 changed = [
-    "lib/foo.txt",
-    "README.md" 
+    "foo.txt",
 ]
 
 def parse_task(task):
@@ -48,6 +39,8 @@ def find_changed(parsed, changed):
                 tasks.append(tup[0])
     
     return tasks
+
+# **** Now I want to make some sort of dependency list from our items that we can then go through and figure out the dependency build order
 
 def main():
     parsed = parse(tsk)
