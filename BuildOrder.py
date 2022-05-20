@@ -35,7 +35,7 @@ if __name__ == "__main__":
     seen = {}
     solved = {}
 
-    print(find(elem, dep, seen, solved))
+    print("Test 1", find(elem, dep, seen, solved))
 
     # Test case 2 (different format)
     elem = "a"
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     seen = {}
     solved = {}
 
-    print(find(elem, dep, seen, solved))
+    print("Test 2", find(elem, dep, seen, solved))
 
     # Test case 3
     elem = "4"
@@ -55,4 +55,22 @@ if __name__ == "__main__":
     seen = {}
     solved = {}
 
-    print(find(elem, dep, seen, solved))
+    print("Test 3", find(elem, dep, seen, solved))
+
+    # Test case 4
+    elem = "a"
+    dep = {"a": ["b", "e"]}
+
+    seen = {}
+    solved = {}
+
+    print("Test 4", find(elem, dep, seen, solved))
+
+    # Test case 5
+    elem = "a"
+    dep = {}
+
+    seen = {}
+    solved = {}
+
+    print("Test 5", find(elem, dep, seen, solved))
