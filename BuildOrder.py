@@ -10,10 +10,10 @@ def find(elem, dep, seen, solved):
                 out += item + " "
             elif item in seen and seen[item] == True:
                 raise Exception("Loop exists")
-            # else:
-            #     out += find(item, dep, seen, solved) + " "
+            else:
+                out += find(item, dep, seen, solved) + " "
 
-    print(elem, dep, seen, solved)
+    # print(elem, dep, seen, solved)
 
     solved[elem] = True
     
