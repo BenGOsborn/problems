@@ -74,3 +74,12 @@ if __name__ == "__main__":
     solved = {}
 
     print("Test 5", find(elem, dep, seen, solved))
+
+    # Test case 6
+    elem = "z"
+    dep = {"a": ["b"]}
+
+    seen = {}
+    solved = {}
+
+    print("Test 6", find(elem, dep, seen, solved))
