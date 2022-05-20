@@ -31,12 +31,12 @@ if __name__ == "__main__":
     # dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"], "e": ["f"]}
     # dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"]}
 
-    elem = "1"
+    elem = "2"
     graph = [[1, 0], [2, 0], [3, 1], [3, 2]]
     dep = graph_to_dict(graph)
-    print(dep)
+    # print(dep)
 
     seen = {}
     solved = {}
 
-    # print(find(elem, dep, seen, solved))
+    print(find(elem, dep, seen, solved))
