@@ -15,10 +15,17 @@ def find(elem, dep, seen, solved):
     
     return out + " " + elem
 
+def graph_to_dict(graph):
+    for pair in graph:
+        pass
+
 if __name__ == "__main__":
     elem = "a"
     # dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"], "e": ["f"]}
-    dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"]}
+    # dep = {"a": ["b", "e"], "b": ["c", "d", "f"], "d": ["c"], "f": ["e"]}
+
+    graph = [[1, 0], [2, 0], [3, 1], [3, 2]]
+    dep = graph_to_dict(graph)
 
     seen = {}
     solved = {}
