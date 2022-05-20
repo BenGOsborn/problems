@@ -46,3 +46,13 @@ if __name__ == "__main__":
     solved = {}
 
     print(find(elem, dep, seen, solved))
+
+    # Test case 3
+    elem = "4"
+    graph = [["4", "3"], ["3", "1"], ["3", "2"], ["1", "0"], ["2", "0"]]
+    dep = graph_to_dict(graph)
+
+    seen = {}
+    solved = {}
+
+    print(find(elem, dep, seen, solved))
