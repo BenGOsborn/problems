@@ -22,6 +22,32 @@ changed = [
     "images/dogs/retriever.jpg"
 ]
 
+def match_glob(glob, file):
+    if glob == "" and file == "": return True
+    if glob == "" and file != "": return False
+    if glob != "" and file == "":
+        if glob == "*": return True
+        return False
+
+    if glob[0] == "*":
+        glob_sliced = glob[1:]
+        if match_glob(glob_sliced, file): return True
+        if file[0] == "": return False
+
+        file_sliced = file[1:]
+        if match_glob(glob, file_sliced): return True
+        
+        return False
+
+
+    if glob[0] == file[0]:
+        glob_sliced = glob[1:]
+        file_sliced = file[1:]
+
+        return match_glob(glob_sliced, file_sliced)
+    
+    return False
+
 def parse_task(task):
     return task.split(" ")[1]
 
