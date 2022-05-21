@@ -2,14 +2,24 @@
 
 
 tsk = [
-    'task: taskA', 'files: foo.txt', 'deps: taskB taskC', '',
-    'task: taskB', 'files: foo.txt', 'deps: taskD', '',
-    'task: taskC', 'files: foo.txt', 'deps: taskD', '',
-    'task: taskD', 'files: foo.txt', 'deps:', ''
+    "task: distributeImages",
+    "files: images/dogs/*.jpg images/*/*.png",
+    "deps: compressJpegs compressPngs",
+    "",
+    "task: compressJpegs",
+    "files: images/dogs/*.jpg",
+    "deps:",
+    "",
+    "task: compressPngs",
+    "files: images/*/*.png",
+    "deps:",
+    ""
 ]
 
+
 changed = [
-    "foo.txt",
+    "images/dogs/dalmatian.jpg",
+    "images/dogs/retriever.jpg"
 ]
 
 def parse_task(task):
