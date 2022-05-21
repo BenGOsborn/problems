@@ -65,16 +65,30 @@ def find(elem, dep, seen, solved, out):
     
     out.append(elem)
 
+def get_all_task_order(to_rerun, dep):
+    out = []
+    seen = {}
+    solved = {}
+
+    for elem in to_rerun:
+        find(elem, dep, seen, solved, out)
+    
+    return out
+
 def main():
     parsed = parse(tsk)
-    out = find_changed(parsed, changed)
+    to_rerun = find_changed(parsed, changed)
+
     dep = build_dependency_chain(parsed)
 
-    # **** So now we need to create a set, go through and add everything to it, and then remove what we dont need
-
     print("Parsed", parsed)
-    print("Out", out)
+    print("Out", to_rerun)
+
     print("Dep", dep)
+
+    task_order = get_all_task_order(to_rerun, dep)
+
+    print(task_order)
 
 if __name__ == "__main__":
     main()
