@@ -10,7 +10,13 @@ def valleys(string):
         else:
             height -= 1
 
-    print(height)
+        if height < 0:
+            started_valley = True
+        elif height == 0 and started_valley:
+            seen += 1
+            started_valley = False
+
+    return seen
 
 def main():
     inp = "UDDDUDUU"
