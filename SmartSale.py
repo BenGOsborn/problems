@@ -24,12 +24,10 @@ def delete_products(ids, m):
         if (occurances[i][0] <= m):
             m -= occurances[i][0]
             count += 1
-
         else:
             return size - count
 
     return size - count
-
 
 def main():
     ids = [1, 2, 3, 1, 2, 2]
