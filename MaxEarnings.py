@@ -11,12 +11,20 @@ def merge_ride(pickup, drop, tip):
 def max_earnings(pickup, drop, tip):
     merged = merge_ride(pickup, drop, tip)
 
-    print(merged)
+    d = {}
+
+    for start, end, tip in merged:
+        if end not in d:
+            d[end] =[[start,tip]]
+        else:
+            d[end].append([start,tip])
+
+    print(d)
 
 def main():
-    pickup = [0, 4, 5]
-    drop = [3, 5, 7]
-    tip = [1, 2, 2]
+    pickup = [0, 2, 9, 10, 11, 12]
+    drop = [5, 9, 11, 11, 14, 17]
+    tip = [1, 2, 3, 2, 2, 1]
 
     print(max_earnings(pickup, drop, tip))
 
