@@ -1,11 +1,17 @@
-def repeated(string, n):
-    # **** Our best bet is going to be to get the number of a's in the existing string
+import math
 
+def num_a(string):
     a_num = 0
     for char in string:
         if char == "a": a_num += 1
-    
-    # **** So now we are going to take this number, multiply it such that it is greater or equal to the length of n, figure out how much the string is over, chop it off, and consider the number of a's in that string
+
+    return a_num
+
+def repeated(string, n):
+    full = math.floor(n / len(string))
+    remainder = n % len(string)
+
+    return num_a(string) * full + num_a(string[:remainder])
 
 def main():
     string = "abcac"
