@@ -65,14 +65,32 @@ def find(elem, dep, seen, solved, out):
     
     out.append(elem)
 
-def get_all_task_order(to_rerun, dep):
+def get_all_tasks(to_rerun, dep):
     out = []
     seen = {}
     solved = {}
 
     for elem in to_rerun:
         find(elem, dep, seen, solved, out)
+
+    already_in = {}
+    real_output = []
+    for elem in out:
+        if elem not in already_in:
+            already_in[elem] = True
+            real_output.append(elem)
     
+    return real_output
+
+def get_ordered_tasks(to_rerun, dep):
+    bloated = get_all_tasks(to_rerun, dep)
+
+    out = []
+
+    for elem in bloated:
+        if elem in to_rerun:
+            out.append(elem)
+
     return out
 
 def main():
@@ -86,9 +104,8 @@ def main():
 
     print("Dep", dep)
 
-    task_order = get_all_task_order(to_rerun, dep)
-
-    print("Task order", task_order)
+    print("OUT", get_ordered_tasks(to_rerun, dep))
+    
 
 if __name__ == "__main__":
     main()
