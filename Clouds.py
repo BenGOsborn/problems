@@ -1,7 +1,4 @@
 def clouds(c):
-    # **** So basically we are just going to step through using 2 jumps, and if the next element lands on 2 jumps then we will just not go to it
-    # **** Our non jump conditions are going to be if it lands on a 1 OR if it lands outside of the array
-
     jumps = 0
     index = 0
 
