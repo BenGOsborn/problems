@@ -72,9 +72,12 @@ def find_changed(parsed, changed):
 
     for tup in parsed:
         for change in changed:
-            # **** This is the line that we need to change
-            if change in tup[1]:
-                tasks.append(tup[0])
+            # if change in tup[1]:
+
+            for elem in tup[1]:
+                if match_glob(elem, change):
+                    tasks.append(tup[0])
+                    break
     
     return tasks
 
@@ -119,8 +122,6 @@ def get_all_tasks(to_rerun, dep):
     
     return real_output
 
-# **** It seems that the dependencies will stay the same, but we just need to modify the find changed function
-
 def get_ordered_tasks(to_rerun, dep):
     bloated = get_all_tasks(to_rerun, dep)
 
@@ -133,19 +134,19 @@ def get_ordered_tasks(to_rerun, dep):
     return out
 
 def main():
-    print(match_glob("images/dogs/*.jpg", "images/dogs/dalmatian.jpg"))
+    parsed = parse(tsk)
+    to_rerun = find_changed(parsed, changed)
 
-    # parsed = parse(tsk)
-    # to_rerun = find_changed(parsed, changed)
+    dep = build_dependency_chain(parsed)
 
-    # dep = build_dependency_chain(parsed)
+    print("Parsed", parsed)
+    print("Out", to_rerun)
 
-    # print("Parsed", parsed)
-    # print("Out", to_rerun)
+    print("Dep", dep)
 
-    # print("Dep", dep)
+    print("OUT", get_ordered_tasks(to_rerun, dep))
 
-    # print("OUT", get_ordered_tasks(to_rerun, dep))
+    # **** Edge case where we have already considered ?
     
 
 if __name__ == "__main__":
