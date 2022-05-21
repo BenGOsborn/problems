@@ -88,7 +88,7 @@ def main():
 
     task_order = get_all_task_order(to_rerun, dep)
 
-    print(task_order)
+    print("Task order", task_order)
 
 if __name__ == "__main__":
     main()
