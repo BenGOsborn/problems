@@ -14,18 +14,54 @@ def get_substrings(string, min_len, max_len):
         
     return out
 
-def max_occurances(components, min_length, max_length):
+def check_unique(string, max_unique):
+    unique = list(set(string))
+
+    dic = {}
+
+    for char in unique:
+        dic[char] = 0
+
+    for char in string:
+        dic[char] += 1
+    
+    uniq_cnt = 0
+    for char in unique:
+        if dic[char] == 1:
+            uniq_cnt += 1
+        if uniq_cnt > max_unique:
+            return False
+        
+    return True
+
+def max_combinations(occurances):
+    dic = {}
+
+    for occurance in occurances:
+        if occurance in dic:
+            dic[occurance] += 1
+        else:
+            dic[occurance] = 1
+    
+    return max(dic.values())
+
+def max_occurances(components, min_length, max_length, max_unique):
     substrings = get_substrings(components, min_length, max_length)
 
-    return substrings
+    out = []
+    for string in substrings:
+        if check_unique(string, max_unique):
+            out.append(string)
+    
+    return max_combinations(out)
 
 def main():
     components = "abcde"
     min_length = 2
-    max_length = 3
-    max_unique = 3
+    max_length = 4
+    max_unique = 26
 
-    print(max_occurances(components, min_length, max_length))
+    print(max_occurances(components, min_length, max_length, max_unique))
 
 if __name__ == "__main__":
     main()
