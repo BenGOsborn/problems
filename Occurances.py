@@ -43,7 +43,9 @@ def max_combinations(occurances):
         else:
             dic[occurance] = 1
     
-    return max(dic.values())
+    if len(dic.values()) > 0:
+        return max(dic.values())
+    return 0
 
 def max_occurances(components, min_length, max_length, max_unique):
     substrings = get_substrings(components, min_length, max_length)
@@ -59,7 +61,7 @@ def main():
     components = "abcde"
     min_length = 2
     max_length = 4
-    max_unique = 26
+    max_unique = 3
 
     print(max_occurances(components, min_length, max_length, max_unique))
 
