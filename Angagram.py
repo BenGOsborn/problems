@@ -9,7 +9,7 @@ def make_hash(string):
 
     return dic
 
-def is_anagram(s1, s2):
+def min_removed_for_anagram(s1, s2):
     dic1 = make_hash(s1)
     dic2 = make_hash(s2)
 
@@ -23,7 +23,7 @@ def is_anagram(s1, s2):
     return sum(list(dic1.values()) + list(dic2.values()))
 
 def main():
-    print(is_anagram("cde", "abc"))
+    print(min_removed_for_anagram("cde", "abc"))
 
 if __name__ == "__main__":
     main()
