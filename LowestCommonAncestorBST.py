@@ -38,14 +38,25 @@ def contains(root, v):
                 return contains(root.right, v)
 
 
+def print_tree(root, spaces):
+    if root:
+        print_tree(root.right, spaces + " ")
+        print(spaces + str(root.data))
+        print_tree(root.left, spaces + " ")
+
 def lca(root, v1, v2):
-    # **** So basically we are going to start off with the root and then we are going to traversing
-    # until we find where the search doesnt contain both, and when we do we are going to return false,
-    # and then we will return true on the first one we see
+    if contains(root, v1) and contains(root, v2):
+        left = lca(root.left, v1, v2)
+        right = lca(root.right, v1, v2)
 
-    if contains(root, v1) and contains(v2):
-        return 
+        if left is not None:
+            return left
+        elif right is not None:
+            return right
 
+        return root
+    else:
+        return None
 
 def main():
     root = None
@@ -56,7 +67,10 @@ def main():
     root = insert(root, 7)
     root = insert(root, 6)
 
-    print(lca(root, 1, 7))
+    print_tree(root, "")
+
+    print()
+    print(lca(root, 1, 7).data)
 
 if __name__ == "__main__":
     main()
