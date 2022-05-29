@@ -3,7 +3,7 @@ from collections import deque
 def is_balanced(s):
     stack = deque()
 
-    # **** So how do I solve this problem again?
+    # **** I need to make some sort of PDA for this now hahahaha
 
     pass
 
