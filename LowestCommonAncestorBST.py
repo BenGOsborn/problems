@@ -23,7 +23,9 @@ class Node:
 
 
 def contains(root, v):
-    if root.data == v:
+    if root is None:
+        return False
+    elif root.data == v:
         return True
     else:
         if v < root.data:
@@ -60,17 +62,13 @@ def lca(root, v1, v2):
 
 def main():
     root = None
-    root = insert(root, 4)
-    root = insert(root, 2)
-    root = insert(root, 3)
     root = insert(root, 1)
-    root = insert(root, 7)
-    root = insert(root, 6)
+    root = insert(root, 2)
 
     print_tree(root, "")
 
     print()
-    print(lca(root, 1, 7).data)
+    print(lca(root, 1, 2).data)
 
 if __name__ == "__main__":
     main()
