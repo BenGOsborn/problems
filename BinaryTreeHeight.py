@@ -20,12 +20,6 @@ def insert(root, data):
                 insert(root.right, data)
     return root
 
-def print_tree(root, spaces):
-    if root:
-        print_tree(root.right, spaces + " ")
-        print(spaces + str(root.data))
-        print_tree(root.left, spaces + " ")
-
 def height(root, _height):
     if root is None or (root.left is None and root.right is None):
         return _height;
@@ -41,8 +35,6 @@ def main():
     root = insert(root, 4)
     root = insert(root, 6)
     root = insert(root, 7)
-
-    print_tree(root, "")
 
     print()
     print(height(root, 0))
