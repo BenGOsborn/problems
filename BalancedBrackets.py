@@ -3,12 +3,22 @@ from collections import deque
 def is_balanced(s):
     stack = deque()
 
-    # **** I need to make some sort of PDA for this now hahahaha
+    for elem in s:
+        if elem in ['(', '[', '{']:
+            if elem == "(":
+                stack.append(")")
+            elif elem == "[":
+                stack.append("]")
+            else:
+                stack.append("}")
+        else:
+            if stack.pop() != elem:
+                return False
 
-    pass
+    return len(stack) == 0
 
 def main():
-    pass
+    print(is_balanced("[[[]][]]"))
 
 if __name__ == "__main__":
     main()
