@@ -12,13 +12,18 @@ def is_balanced(s):
             else:
                 stack.append("}")
         else:
-            if stack.pop() != elem:
+            if len(stack) == 0 or stack.pop() != elem:
                 return False
 
     return len(stack) == 0
 
 def main():
-    print(is_balanced("[[[]][]]"))
+    print(is_balanced("}][}}(}][))]"))
+    print(is_balanced("[](){()}"))
+    print(is_balanced("()"))
+    print(is_balanced("({}([][]))[]()"))
+    print(is_balanced("{)[](}]}]}))}(())("))
+    print(is_balanced("([[)"))
 
 if __name__ == "__main__":
     main()
