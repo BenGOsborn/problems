@@ -33,6 +33,7 @@ def main():
     dfs_iterative(graph, "a")
     # print()
     # dfs_recursive(graph, "a")
+    DFS(graph, "a")
 
 if __name__ == "__main__":
     main()
