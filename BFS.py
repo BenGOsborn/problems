@@ -1,25 +1,25 @@
-from collections import deque
-
 def bfs_iterative(graph, entry):
-    stack = deque()
+    q = []
+    visited = {}
 
-    stack.append(entry)
+    q.append(entry)
+    visited[entry] = True
 
-    print(entry)
+    while len(q) > 0:
+        val = q.pop(0)
+        print(val)
 
-    while len(stack) > 0:
-        popped = stack.pop()
-
-        if popped in graph:
-            for elem in graph[popped]:
-                print(elem)
-                stack.append(elem)
+        if val in graph:
+            for elem in graph[val]:
+                if elem not in visited:
+                    q.append(elem)
+                    visited[elem] = True
 
 def main():
     graph = {
         "a": ["b", "c"],
-        "c": ["d", "e"],
-        "e": ["f"],
+        "b": ["d", "e"],
+        "c": ["f"],
         "f": ["g", "z"]
     }
 
