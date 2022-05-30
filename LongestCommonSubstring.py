@@ -24,8 +24,10 @@ def longest_common_same(s1, s2):
 
 
 def main():
-    s1 = ["/start", "/green", "/blue", "/pink", "/register", "/orange", "/one/two"]
-    s2 = ["/start", "/pink", "/register", "/orange", "/red", "a"]
+    # s1 = ["/start", "/green", "/blue", "/pink", "/register", "/orange", "/one/two"]
+    # s2 = ["/start", "/pink", "/register", "/orange", "/red", "a"]
+    s1 = ["/pink", "/orange", "/yellow", "/plum", "/blue", "/tan", "/red", "/amber", "/HotRodPink", "/CornflowerBlue", "/LightGoldenRodYellow", "/BritishRacingGreen"]
+    s2 = ["/pink", "/orange", "/amber", "/BritishRacingGreen", "/plum", "/blue", "/tan", "/red", "/lavender", "/HotRodPink", "/ConflowerBlue", "/LightGoldenRodYellow"]
 
     print(longest_common_same(s1, s2))
 
