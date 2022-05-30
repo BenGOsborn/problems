@@ -1,17 +1,19 @@
-from collections import deque
-
 def dfs_iterative(graph, entry):
-    stack = deque()
+    stack = []
+    visited = {}
 
     stack.append(entry)
+    visited[entry] = True
 
     while len(stack) > 0:
-        popped = stack.pop()
-        print(popped)
+        val = stack.pop(-1)
+        print(val)
 
-        if popped in graph:
-            for elem in graph[popped]:
-                stack.append(elem)
+        if val in graph:
+            for elem in graph[val]:
+                if elem not in visited:
+                    stack.append(elem)
+                    visited[elem] = True
 
 def dfs_recursive(graph, entry):
     print(entry)
@@ -29,8 +31,8 @@ def main():
     }
 
     dfs_iterative(graph, "a")
-    print()
-    dfs_recursive(graph, "a")
+    # print()
+    # dfs_recursive(graph, "a")
 
 if __name__ == "__main__":
     main()
