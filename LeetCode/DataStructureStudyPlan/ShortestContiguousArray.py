@@ -35,5 +35,5 @@ def shortest_contiguous(nums):
     
     return len(nums) - max(out.values())
 
-test = tests[0]
+test = tests[1]
 print(shortest_contiguous(test))
