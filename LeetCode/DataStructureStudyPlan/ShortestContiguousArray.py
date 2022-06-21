@@ -10,8 +10,6 @@ def shortest_contiguous(nums):
         else:
             seen[elem] = 1
 
-    # **** There could be multiple of the same degree that we have to find
-
     degree = max(seen.values())
     included = []
 
@@ -19,7 +17,23 @@ def shortest_contiguous(nums):
         if seen[key] == degree:
             included.append(key)
     
-    print(included)
+    out = {}
+    for i in included:
+        out[i] = 0
+
+        for j in nums:
+            if j == i:
+                break
+
+            out[i] += 1
+
+        for j in nums[::-1]:
+            if j == i:
+                break
+
+            out[i] += 1
+    
+    return len(nums) - max(out.values())
 
 test = tests[0]
 print(shortest_contiguous(test))
