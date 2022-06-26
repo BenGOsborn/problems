@@ -1,33 +1,31 @@
-tests = [([[1, 2], [3, 4]], 1, 4)]
+tests = [([[1, 2], [3, 4]], 1, 4), ([[1, 2], [3, 4]], 2, 4)]
 
 
-def reshape(matrix, rows, cols):
-    if len(matrix) * len(matrix[0]) != rows * cols:
-        return matrix
+def reshape(mat, r, c):
+    if len(mat) * len(mat[0]) != r * c:
+        return mat
 
     out = []
 
-    for i in range(rows):
+    for i in range(r):
         temp = []
 
-        for j in range(cols):
+        for j in range(c):
             temp.append(0)
 
         out.append(temp)
 
-    for i in range(len(matrix)):
-        for j in range(len(matrix[0])):
-            position = i * len(matrix[0]) + j
+    for i in range(len(mat)):
+        for j in range(len(mat[0])):
+            position = i * len(mat[0]) + j
 
-            row_index = position // rows
-            col_index = position % cols
+            row_index = position // c
+            col_index = position % c
 
-            print(position, row_index, col_index)
-
-            # out[][] = matrix[i][j]
+            out[row_index][col_index] = mat[i][j]
 
     return out
 
 
-test = tests[0]
+test = tests[1]
 print(reshape(test[0], test[1], test[2]))
