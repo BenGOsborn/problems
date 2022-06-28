@@ -54,11 +54,23 @@ class Solution:
 
             current = current.next
 
-        # while list1 != None:
-        #     pass
+        while list1 != None:
+            temp = list1.next
+            list1.next = None
 
-        # while list2 != None:
-        #     pass
+            current.next = list1
+            list1 = temp
+
+            current = current.next
+
+        while list2 != None:
+            temp = list2.next
+            list2.next = None
+
+            current.next = list2
+            list2 = temp
+
+            current = current.next
 
         return sentinel.next
 
