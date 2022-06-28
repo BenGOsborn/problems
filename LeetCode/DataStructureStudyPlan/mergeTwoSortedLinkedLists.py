@@ -6,17 +6,7 @@ class ListNode:
 class Solution:
     def mergeTwoLists(self, list1, list2):
         out = None
-        out_ptr = out # **** I don't know if this is going to continue tracking it
+        out_ptr = None
 
-        # **** This is actually really annoying to deal with...
-
-        while list1 != None and list1.next != None and list2 != None and list2.next != None:
-            pass
-
-        while list1 != None and list1.next != None:
-            pass
-
-        while list2 != None and list2.next != None:
-            pass
-
-        return None
+        # **** Now what we will do is simply iterate through the different lists from their head, check them one by one, and then add them to the list in the correct order
+        # **** This will have to be updated on our first visit to point to out
