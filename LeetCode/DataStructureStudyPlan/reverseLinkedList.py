@@ -18,8 +18,22 @@ head_1_2.next = head_1_1
 head_1_3.next = head_1_2
 
 class Solution:
+    def reverse(self, head, storage):
+        if head == None:
+            return
+        
+        storage.next = ListNode()
+        storage.next.val = head.val
+
+        self.reverse(head.next, storage.next)
+
     def reverseList(self, head):
-        pass
+        storage = ListNode()
+
+        if head != None:
+            self.reverse(head, storage)
+
+        return storage.next
         
 print_list(head_1_3)
 print()
