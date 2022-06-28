@@ -22,10 +22,12 @@ class Solution:
         if head == None:
             return
         
+        temp = storage.next
         storage.next = ListNode()
         storage.next.val = head.val
+        storage.next.next = temp
 
-        self.reverse(head.next, storage.next)
+        self.reverse(head.next, storage)
 
     def reverseList(self, head):
         storage = ListNode()
