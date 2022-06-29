@@ -1,20 +1,26 @@
 # **** How exactly can I do that
+# **** Realistically, we could pop everything off of the stack into the other one, insert it into the correct position and then have it work from the popping off...
+# **** This means that the second stack is just going to be used to temporarily keep track of the data...
 
 class MyQueue:
-    stack1 = []
-    stack2 = []
-
     def __init__(self):
-        pass
+        self.stack = []
+        self.temp = []
 
     def push(self, x: int) -> None:
-        pass
+        while len(self.stack) > 0:
+            self.temp.append(self.stack.pop(-1))
+        
+        self.stack.append(x)
+
+        while len(self.temp) != 0:
+            self.stack.append(self.temp.pop(-1))
 
     def pop(self) -> int:
-        pass
+        return self.stack.pop(-1)
 
     def peek(self) -> int:
-        pass
+        return self.stack[-1]
 
     def empty(self) -> bool:
-        pass
+        return len(self.stack) == 0
