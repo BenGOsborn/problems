@@ -1,8 +1,18 @@
 class Solution:
     def is_mirror(self, left, right):
-        # **** This is going to keep track of the nodes on either side and ensure that they appear in the right order...
+        if not left and not right:
+            return True
+        
+        if not left or not right:
+            return False
 
-        pass
+        if left.val != right.val:
+            return False
+
+        if not self.is_mirror(left.left, right.right) or not self.is_mirror(left.right, right.left):
+            return False
+
+        return True
 
     def isSymmetric(self, root):
-        pass
+        return self.is_mirror(root.left, root.right)
