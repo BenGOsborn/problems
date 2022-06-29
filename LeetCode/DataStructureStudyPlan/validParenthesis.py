@@ -1,8 +1,22 @@
-tests = ["()", "()[]{}", "(]"]
+tests = ["()", "()[]{}", "(]", "[", "]"]
 
 class Solution:
     def isValid(self, s):
-        pass
+        stack = []
 
-test = tests[0]
+        pair = {"(": ")", "[": "]", "{": "}"}
+
+        for elem in s:
+            if elem in ["(", "[", "{"]:
+                stack.append(elem)
+            else:
+                if len(stack) == 0:
+                    return False
+                out = stack.pop(-1)
+                if elem != pair[out]:
+                    return False
+
+        return len(stack) == 0
+
+test = tests[4]
 print(Solution().isValid(test))
