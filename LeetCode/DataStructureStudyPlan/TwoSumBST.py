@@ -20,7 +20,7 @@ class Solution:
         look_for = k - root.val
 
         if look_for in seen:
-            if seen[look_for] == root.val:
+            if look_for == root.val:
                 return seen[look_for] > 1
             return True
 
