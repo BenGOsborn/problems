@@ -35,7 +35,9 @@ class Solution:
         if out_list[0] == 0 and len(out_list) > 1:
             out_list = out_list[1:]
 
-        print(out_list)
+        return "".join([str(x) for x in out_list])
 
+tests = [("11", "123"), ("456", "77"), ("0", "0")]
 
-print(Solution().addStrings("121", "50"))
+for test in tests:
+    print(Solution().addStrings(test[0], test[1]))
