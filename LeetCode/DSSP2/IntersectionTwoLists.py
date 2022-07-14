@@ -6,7 +6,23 @@
 
 class Solution:
     def getIntersectionNode(self, headA, headB):
-        # **** We just need to do this recursively and then the point where it doesnt intersect will be where it is the same
-        # **** We will just assume that if the next one is correct then the previous one must also be correct and we will keep doing this until ... ?
+        if not headA or not headB:
+            return None
 
-        pass 
+        pointer_a = headA
+        pointer_b = headB
+
+        while pointer_a and pointer_b and pointer_a != pointer_b:
+            pointer_a = pointer_a.next
+            pointer_b = pointer_b.next
+
+            if pointer_a == pointer_b:
+                return pointer_b
+
+            if not pointer_a:
+                pointer_a = headB
+
+            if not pointer_b:
+                pointer_b = headA
+
+        return pointer_a
