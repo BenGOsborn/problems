@@ -13,7 +13,7 @@ class Solution:
         pointer_b = headB
 
         # If they are of uneven lengths, the first iteration over the list is used to compensate for the offset to get them from the exact distance length from the end
-        # Realistically we could have also just counter the elements in the list and done some iterations to get to that spot, then begun our checks
+        # Realistically we could have also just counter the elements in the list and done some iterations to get to that spot, then begun our checks - we know the ends must line up
 
         while pointer_a and pointer_b and pointer_a != pointer_b:
             pointer_a = pointer_a.next
