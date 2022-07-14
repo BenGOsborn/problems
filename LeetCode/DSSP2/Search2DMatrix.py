@@ -1,16 +1,16 @@
 class Solution:
-    def binary_search_col(self, matrix, c, t, b, target):
-        mid = (t + b) // 2
+    def binary_search_col(self, matrix, col, top, bot, target):
+        mid = (top + bot) // 2
 
-        if matrix[mid][c] == target:
+        if matrix[mid][col] == target:
             return True
         else:
-            if t >= b:
+            if top >= bot:
                 return False
-            elif matrix[mid][c] > target:
-                return self.binary_search_col(matrix, c, t, mid - 1, target)
+            elif matrix[mid][col] > target:
+                return self.binary_search_col(matrix, col, top, mid - 1, target)
             else:
-                return self.binary_search_col(matrix, c, mid + 1, b, target)
+                return self.binary_search_col(matrix, col, mid + 1, bot, target)
 
     def searchMatrix(self, matrix, target):
         print(matrix, target)
