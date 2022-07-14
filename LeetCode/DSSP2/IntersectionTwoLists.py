@@ -12,10 +12,14 @@ class Solution:
         pointer_a = headA
         pointer_b = headB
 
+        # If they are of uneven lengths, the first iteration over the list is used to compensate for the offset to get them from the exact distance length from the end
+        # Realistically we could have also just counter the elements in the list and done some iterations to get to that spot, then begun our checks
+
         while pointer_a and pointer_b and pointer_a != pointer_b:
             pointer_a = pointer_a.next
             pointer_b = pointer_b.next
 
+            # Only can happen when the two are the same OR when they reach the end of the second iteration and are both none
             if pointer_a == pointer_b:
                 return pointer_b
 
