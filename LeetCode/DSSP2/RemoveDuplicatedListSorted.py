@@ -14,8 +14,8 @@ class Solution:
 
         seen = False
 
-        while ptr_next and ptr_next.next:
-            if ptr_current.next.val == ptr_next.next.val:
+        while (ptr_next and ptr_next.next) or seen:
+            if ptr_next.next and ptr_current.next.val == ptr_next.next.val:
                 seen = True
             else:
                 if seen:
