@@ -10,19 +10,19 @@ class Solution:
         temp_head.next = head
 
         ptr_current = temp_head
-        ptr_next = temp_head
+        ptr_next = temp_head.next
 
-        seen_counter = 0
+        seen = False
 
         while ptr_next and ptr_next.next:
             if ptr_current.next.val == ptr_next.next.val:
-                seen_counter += 1
+                seen = True
             else:
-                if seen_counter > 1:
+                if seen:
                     ptr_current.next = ptr_next.next
-
-                ptr_current = ptr_next
-                seen_counter = 1
+                    seen = False
+                else:
+                    ptr_current = ptr_next
 
             ptr_next = ptr_next.next
 
