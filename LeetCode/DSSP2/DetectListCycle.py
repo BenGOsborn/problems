@@ -9,10 +9,10 @@ class Solution:
         seen = {}
 
         while head:
-            if str(head) in seen:
+            if head in seen:
                 return head
             
-            seen[str(head)] = head
+            seen[head] = True
 
             head = head.next
 
