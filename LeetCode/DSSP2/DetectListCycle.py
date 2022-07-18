@@ -9,4 +9,11 @@ class Solution:
         seen = {}
 
         while head:
-            pass
+            if str(head) in seen:
+                return head
+            
+            seen[str(head)] = head
+
+            head = head.next
+
+        return None
