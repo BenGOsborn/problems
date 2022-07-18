@@ -5,7 +5,6 @@ class TreeNode:
         self.left = left
         self.right = right
 
-
 class Solution:
     def sortedArrayToBST(self, nums):
         if len(nums) == 0:
