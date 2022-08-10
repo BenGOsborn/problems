@@ -112,3 +112,26 @@ def bst_insert(root, val):
 
 # 8
 
+# Insertion from empty (worst case): log(1) + log(2) + log(3) + ... + log(N - 1) + log(N) = log(N!)
+# log(N!) < log(N) + log(N) + log(N) + ... + log(N) = Nlog(N), thus O(NlogN)
+# https://stackoverflow.com/questions/2095395/is-logn-%CE%98n-logn - good resource for figuring out the splitting
+# log(N!) > log(N) + log(N - 1) + ... + log(N / 2) > log(N / 2) + log(N / 2) + ... + log(N / 2) = Nlog(N / 2) = Nlog(N) - Nlog(2) = Nlog(N)
+# Thus log(N!) = NlogN which is the worst case insertion time
+
+# 9 (I think this is valid, is it not ?)
+
+# Key array = [18, 24, 71, 5, 22, 23, 66, 32, 8, 25, 27]
+# Into = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+# Outof = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+# 10
+
+# Line 0. parent = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
+
+# Line 1. parent = {1: 2, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
+# Line 2. parent = {1: 2, 2: 2, 3: 4, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
+# Line 3. parent = {1: 2, 2: 2, 3: 4, 4: 4, 5: 6, 6: 6, 7: 7, 8: 8}
+# Line 4. parent = {1: 2, 2: 2, 3: 4, 4: 4, 5: 6, 6: 7, 7: 7, 8: 8}
+# Line 5. parent = {1: 2, 2: 2, 3: 4, 4: 4, 5: 6, 6: 7, 7: 8, 8: 8}
+# Line 6. parent = {1: 2, 2: 2, 3: 4, 4: 8, 5: 6, 6: 7, 7: 8, 8: 8}
+# Line 7. parent = {1: 2, 2: 2, 3: 4, 4: 8, 5: 6, 6: 7, 7: 8, 8: 2}
