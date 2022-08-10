@@ -108,3 +108,6 @@ def heap_insert_indirect(val, v, keys):
 # This algorithm is no different than the heap insert which is logN time except that it uses an additional hashmap access. Therefore we have O(1) * O(logN) = O(logN) as required
 
 # 27
+
+# If we assume that the insert is going to be O(N) time, then we can calculate this as O(N^2). After this we will have a remainder of O(NlogN) removals and therefore we have O(N^2) heapsort with this
+# Regularly, our heapsort is going to be O(NlogN) + O(NlogN) = O(NlogN)
