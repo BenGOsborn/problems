@@ -104,3 +104,7 @@ def heap_insert_indirect(val, v, keys):
         i = i // 2
 
     v[i] = val
+
+# This algorithm is no different than the heap insert which is logN time except that it uses an additional hashmap access. Therefore we have O(1) * O(logN) = O(logN) as required
+
+# 27
