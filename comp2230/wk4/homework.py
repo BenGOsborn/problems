@@ -95,3 +95,25 @@ def search_tree(root, val):
         return right
     
     return None
+
+# 18
+
+# So basically, we would just need to make sure that our heap was comparing off of the sizes of the indexes stored rather than the values themselves. If this was the case,
+# we would simply just take the item off of the top of the heap which is constant lookup time as we just view the element and no need to rearrange it, then we would find the key that corresponds with the value
+# and then we would have our answer
+
+# Pseudocode looks like
+# x = heap.peek()
+# value = keys[x]
+# return value
+
+# 19
+
+# Original. parent = {1: 1, 2: 2, 3: 3}
+# union1(1, 2). parent = {1: 2, 2: 2, 3: 3}
+# union1(2, 3). parent = {1: 2, 2: 3, 3: 3}
+# union1(3, 1). parent = {1: 2, 2: 2, 3: 3}
+# union1(3, 2). parent = {1: 2, 2: 2, 3: 3}
+
+# It is not going to make any modifications to the set as it seems there will always be one root which points back to itself (that is the set itself)
+# This is because something that is a child of the set will always point back to the root of the set itself, and therefore it will have no effect
