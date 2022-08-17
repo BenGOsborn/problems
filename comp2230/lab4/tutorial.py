@@ -71,16 +71,56 @@ def dfs_non_resursive(graph):
 
     seen = {}
 
-    for elem in graph.keys():
-        stack.append(elem)
+    for key in graph.keys():
+        stack.append(key)
 
         while len(stack):
-            # **** Fix this up
-            pass
+            item = stack.pop(-1)
+
+            if item in seen:
+                continue
+
+            seen[item] = True
+
+            print(item)
+
+            if item in graph:
+                for elem in graph[item][::-1]:
+                    stack.append(elem)
 
 
-print(dfs_non_resursive(graph))
+dfs_non_resursive(graph)
 
 # 7
 
 # Best case time is O(m + n) because we still have to explore each node and edge once
+
+# 8
+
+matrix = [[0, 0, 0, 0, 0],
+          [1, 0, 0, 0, 0],
+          [0, 1, 0, 0, 0],
+          [0, 1, 1, 0, 0],
+          [1, 1, 0, 1, 0]]
+
+
+def dfs_adjacency_matrix(matrix):
+    seen = {}
+
+    for i in range(len(matrix)):
+        dfs_adjacency_matrix_recursive(i, matrix, seen)
+
+
+def dfs_adjacency_matrix_recursive(row, matrix, seen):
+    if row in seen:
+        return
+    seen[row] = True
+
+    print(row)
+
+    for i in range(len(matrix[row])):
+        if matrix[row][i] == 1:
+            dfs_adjacency_matrix_recursive(i, matrix, seen)
+
+
+dfs_adjacency_matrix(matrix)
