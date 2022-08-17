@@ -43,3 +43,22 @@ test = {"a": ["b", "s"], "s": ["g", "c"], "g": [
     "f", "h"], "c": ["d", "e", "f"], "e": ["h"]}
 
 print(bfs_path("a", "f", test))
+
+# 5
+
+# [-1, -5, 1, 2, 4, 6, 7]
+
+# Algorithm (time / space complexity O(1))
+
+
+def index_equal_elem(array):
+    if array[0] == 0:
+        return 0
+
+    return -1
+
+
+tests = [[-1, -5, 1, 2, 4, 6, 7], [0, 1, 3]]
+
+for test in tests:
+    print(index_equal_elem(test))
