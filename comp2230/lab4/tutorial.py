@@ -39,10 +39,10 @@ def bfs_path(start, find, graph):
     return [start] + out[::-1]
 
 
-test = {"a": ["b", "s"], "s": ["g", "c"], "g": [
+graph = {"a": ["b", "s"], "s": ["g", "c"], "g": [
     "f", "h"], "c": ["d", "e", "f"], "e": ["h"]}
 
-print(bfs_path("a", "f", test))
+print(bfs_path("a", "f", graph))
 
 # 5
 
@@ -62,3 +62,25 @@ tests = [[-1, -5, 1, 2, 4, 6, 7], [0, 1, 3]]
 
 for test in tests:
     print(index_equal_elem(test))
+
+
+# 6
+
+def dfs_non_resursive(graph):
+    stack = []
+
+    seen = {}
+
+    for elem in graph.keys():
+        stack.append(elem)
+
+        while len(stack):
+            # **** Fix this up
+            pass
+
+
+print(dfs_non_resursive(graph))
+
+# 7
+
+# Best case time is O(m + n) because we still have to explore each node and edge once
