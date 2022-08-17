@@ -124,3 +124,48 @@ def dfs_adjacency_matrix_recursive(row, matrix, seen):
 
 
 dfs_adjacency_matrix(matrix)
+
+# The worst case time for this is O(V^2) where V is the number of vertexes
+
+# 9
+
+print("9\n")
+
+
+def bfs(graph):
+    seen = {}
+
+    queue = []
+
+    for key in graph.keys():
+        queue.append(key)
+
+        while len(queue):
+            popped = queue.pop(0)
+
+            if popped in seen:
+                continue
+            seen[popped] = True
+
+            print(popped)
+
+            if popped in graph:
+                for edge in graph[popped]:
+                    queue.append(edge)
+
+
+g1 = {"1": ["2", "4"], "2": ["1", "3", "5"], "3": [
+    "2", "5", "4"], "4": ["1", "3", "5"], "5": ["2", "3", "4"]}
+
+g2 = {"1": ["2", "4", "5"], "2": ["1", "5", "3"], "3": ["2", "5", "6"], "4": ["1", "5", "7"], "5": ["1", "2", "3", "4", "6", "7", "8", "9"], "6": ["3", "5", "9"],
+      "7": ["4", "5", "8", "10"], "8": ["5", "7", "9", "10", "11", "12"], "9": ["6", "5", "8", "12"], "10": ["7", "8", "11"], "11": ["10", "8", "12"], "12": ["11", "8", "9"]}
+
+print("BFS:g1\n")
+bfs(g1)
+print("BFS:g2\n")
+bfs(g2)
+
+print("DFS:g1\n")
+dfs_non_resursive(g1)
+print("DFS:g2\n")
+dfs_non_resursive(g2)
