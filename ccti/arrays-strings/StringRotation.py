@@ -1,9 +1,6 @@
-def is_substring(string1, string2):
-    return string1 == string2
-
-
 def is_rotation(string1, string2):
-    pass
+    concat = string1 + string2
+    return string2 in concat
 
 # The easiest way to do this is going to be to rotate the characters back a specific amount ?
 
