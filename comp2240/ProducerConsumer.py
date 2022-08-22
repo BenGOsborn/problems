@@ -24,9 +24,10 @@ def consume(id):
 
         if len(data) == 0:
             remainder -= 1
-            sleep(1)
         else:
             print(f"TC{id}:{data.pop(0)}")
+            sleep(0.01)
+
             remainder = retries
 
         data_lock.release()
@@ -34,8 +35,8 @@ def consume(id):
 
 def main():
     PRODUCERS = 10
-    PRODUCE_AMOUNT = 20
-    CONSUMERS = 5
+    PRODUCE_AMOUNT = 10
+    CONSUMERS = 100
 
     producers = []
     consumers = []
