@@ -26,11 +26,12 @@ def consume(id):
             remainder -= 1
         else:
             print(f"TC{id}:{data.pop(0)}")
-            sleep(0.01)
 
             remainder = retries
 
         data_lock.release()
+
+        sleep(1)
 
 
 def main():
