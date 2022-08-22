@@ -14,7 +14,24 @@ class ListNode:
 # - Loop through the list with one slow and one fast pointer
 # - If the fast pointer gets to the end of the list, we know there is no cycle
 # - Otherwise if the slow and fast pointer intersect, we have found a cycle
+# Time: O(n) | Space: O(1)
 
 
 def loop_detection(head):
-    pass
+    sentinel = ListNode()
+    sentinel.next = head
+
+    slow = sentinel
+    fast = sentinel
+
+    while fast is not None:
+        if slow == fast:
+            return False
+
+        slow = slow.next
+        fast = fast.next
+        if not fast:
+            return True
+        fast = fast.next
+
+    return True
