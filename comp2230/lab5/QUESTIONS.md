@@ -75,3 +75,11 @@ Topological sort: We will hit every vertex in the graph once and we will explore
     -   If we no longer have the same issue, we know it must have been one of the tip up coins we removed earlier which only requires one search
     -   If the tipping is redirected now, we know that it must be a result of one of the 3 coins we moved over, which we can compare
     -   If the tipping stays the same, we know it must be because of one of the individual remaining coins. Therefore, we will compare one of these coins against a normal coin and if it tips it is it else the other is
+
+## 13
+
+If we construct a decision tree for all of the possible combinations from each weighing, we see that each outcome can only have 3 states being scales balanced, or 2 unbalanced, where the balanced state narrows down by 8 and the unbalanced narrows down by 4. Therefore in the worst case, we need 3 attempts from each
+
+## 14
+
+For a directed acyclic graph that achieved this, consider any graph with at most 4 vertices that does not have any edges. Then, each permutation of those vertices will be a topological sort, as no vertex has any dependencies
