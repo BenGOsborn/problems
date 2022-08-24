@@ -25,6 +25,16 @@ def is_valid_pos(board, row, col):
         if board[i][j] == 1:
             return False
 
+    for i, j in zip(range(row, -1, -1),
+                    range(col, len(board))):
+        if board[i][j] == 1:
+            return False
+
+    for i, j in zip(range(row, len(board[0])),
+                    range(col, len(board))):
+        if board[i][j] == 1:
+            return False
+
     return True
 
 
@@ -36,7 +46,6 @@ def find_queens(board, current_row, out):
     if current_row == len(board):
         copy = copy_board(board)
         out.append(copy)
-        return True
 
     for i in range(len(board[0])):
         is_valid = is_valid_pos(board, current_row, i)
@@ -44,19 +53,14 @@ def find_queens(board, current_row, out):
         if is_valid:
             board[current_row][i] = 1
 
-            found = find_queens(board, current_row + 1, out)
-
-            if found:
-                return True
+            find_queens(board, current_row + 1, out)
 
             board[current_row][i] = 0
 
-    return False
-
 
 out = []
+size = 9
 
-size = 4
 board = [[0 for _ in range(size)] for _ in range(size)]
 success = find_queens(board, 0, out)
 
@@ -65,3 +69,5 @@ for board in out:
         print(row)
 
     print()
+
+print(len(out))
