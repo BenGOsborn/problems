@@ -54,17 +54,14 @@ def find_queens(board, current_row, out):
     return False
 
 
-def print_board(board):
-    for row in board:
-        print(row)
-
-
 out = []
 
 size = 4
-board = [[0 for _ in range(4)] for _ in range(4)]
-print_board(board)
-print()
+board = [[0 for _ in range(size)] for _ in range(size)]
 success = find_queens(board, 0, out)
-print(success)
-print_board(board)
+
+for board in out:
+    for row in board:
+        print(row)
+
+    print()
