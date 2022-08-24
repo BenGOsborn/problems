@@ -60,3 +60,18 @@ For example, we will ask if the pictures row is greater than or equal to row 4 (
 ## 10
 
 Topological sort: We will hit every vertex in the graph once and we will explore every edge in the graph once, therefore we have O(|V| + |E|) time complexity. O(|V| + |E|) for the worst case, and ohm(|V| + |E|) in the best case, therefore these are our lower and upper bounds which converge to theta(|V| + |E|) time complexity
+
+## 12
+
+-   Split the coins into 3 groups of 4 and weigh them again each other
+-   If we have two groups that are balanced
+    -   Take 3 of the coins and weigh them against 3 of the good coins
+    -   If they are balanced, the third one is a fake
+    -   Otherwise, keep track of how the scales tip, then weigh two of the coins against each other
+    -   If they are balanced, the remainder is counterfeit
+    -   If they are not, then we will know which one is the fake based on how it tips, as we know the tipping direction based off of the previous result
+-   If they are not balanced, then look at the way in which it tips
+    -   Replace 3 of the coins that tipped up with 3 coins that tipped down and put those tipping up coins down for later into a pile. Then, take our known good coins and put them as a part of the tipping down side
+    -   If we no longer have the same issue, we know it must have been one of the tip up coins we removed earlier which only requires one search
+    -   If the tipping is redirected now, we know that it must be a result of one of the 3 coins we moved over, which we can compare
+    -   If the tipping stays the same, we know it must be because of one of the individual remaining coins. Therefore, we will compare one of these coins against a normal coin and if it tips it is it else the other is
