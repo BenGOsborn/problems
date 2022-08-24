@@ -5,6 +5,7 @@
 # Assume that we are given an NxN board
 
 
+# With assistance from https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/
 def is_valid_pos(board, row, col):
     for i in range(row):
         if board[i][col] == 1:
