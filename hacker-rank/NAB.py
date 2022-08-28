@@ -82,7 +82,8 @@ def solution(S):
     return "".join(array)
 
 
-tests = ["kayak", "radar", "mom", "?ab??a", "bab??a", "?a?", "a", "", "?"]
+tests = ["kayak", "radar", "mom", "?ab??a",
+         "bab??a", "?a?", "a", "", "?", "??", "?????"]
 
 for test in tests:
     print(solution(test))
