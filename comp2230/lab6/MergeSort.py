@@ -36,7 +36,17 @@ def mergesort_r(arr):
 
 
 def mergesort_i(arr):
-    pass
+    split_q = [[elem] for elem in arr]
+
+    while len(split_q):
+        elem_1 = split_q.pop(0)
+
+        if len(elem_1) == len(arr):
+            return elem_1
+
+        elem_2 = split_q.pop(0)
+
+        split_q.append(merge(elem_1, elem_2))
 
 
 print(mergesort_i([1, 5, 4, 2, 8, 3, 2]))
