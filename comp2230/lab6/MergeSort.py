@@ -23,16 +23,20 @@ def merge(arr1, arr2):
     return out
 
 
-def mergesort(arr):
+def mergesort_r(arr):
     if len(arr) < 2:
         return arr
 
     middle = len(arr) // 2
 
-    s_left = mergesort(arr[:middle])
-    s_right = mergesort(arr[middle:])
+    s_left = mergesort_r(arr[:middle])
+    s_right = mergesort_r(arr[middle:])
 
     return merge(s_left, s_right)
 
 
-print(mergesort([1, 5, 4, 2, 8, 3, 2]))
+def mergesort_i(arr):
+    pass
+
+
+print(mergesort_i([1, 5, 4, 2, 8, 3, 2]))
