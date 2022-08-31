@@ -99,7 +99,7 @@ Make it so that all elements that come before 28 appear before it in any order, 
 
 ### 9
 
-<!-- TODO -->
+We would still have nlogn to remove the elements in the heap, however if all of insert was n time then we would still have nlogn
 
 ### 10
 
@@ -123,7 +123,11 @@ We also know that the algorithm in the worst case runs with complexity 1 + 2 + 3
 
 ### 12
 
-<!-- TODO -->
+Quicksort in the worst case is where all of the elements are out of order
+
+For each partition we make, we will have a runtime of n time complexity, such as it follows 1 + 2 + 3 + 4 + .. + n = n(n + 1) / 2 worst case
+
+Since n(n + 1) / 2 <= cn^2 where c = 10, and n(n + 1) / 2 >= cn^2 where n = 1, then we see that since our Big O is n^2 and our big omega is n^2, then our big theta is also n^2 for the worst case
 
 ### 13
 
@@ -131,7 +135,7 @@ We also know that the algorithm in the worst case runs with complexity 1 + 2 + 3
 
 ### 14
 
-<!-- TODO -->
+If we pick the middle element for each pivot which is optimal as it divides the sets evenly as the list is already sorted, then we will end up with nlogn time
 
 ### 15
 
