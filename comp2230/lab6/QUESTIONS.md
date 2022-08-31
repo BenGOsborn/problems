@@ -8,11 +8,35 @@ Insertion sort also has to consider shifting the remaining elements of the sorte
 
 ### 2
 
-<!-- TODO -->
+c[0, 10] = 0
+Update c with the respective counts of each element in the given array
+
+From there, we accumulate the sums of each element together
+
+We then take these accumulated indexes, and add the current element to the array until we get to the index of the next element, in which we repeat the same process until we get to the end
+
+This results in
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+[0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 2, 0, 0, 0, 0, 1, 0, 1]
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+[0, 0, 1, 2, 2, 2, 2, 2, 3, 4, 6, 6, 6, 6, 6, 7, 7, 8]
+
+Now we shift to the right
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+[0, 0, 0, 1, 2, 2, 2, 2, 2, 3, 04, 06, 06, 06, 06, 06, 07, 07] (and then the last one until the end of the index)
+
+Then we print
+
+[2, 3, 8, 9, 10, 10, 15, 17]
 
 ### 3
 
-<!-- TODO -->
+Assuming that there is not an error in for k = 1 to m as we do not need to iterate that far so far
+
+It does actually work by filling in based off of how many times the element has been seen in its correct positions, however, it is not stable as it reverses the relative order of the sort keys
 
 ### 4
 
@@ -24,17 +48,54 @@ Modified merge algorithm - DONE
 
 ### 6
 
-<!-- TODO -->
+Create a sorted array at the front of the array
+
+| 14 40 31 28 3 15 17 51
+
+14 | 40 31 28 3 15 17 51
+
+40 14 | 31 28 3 15 17 51
+
+14 31 40 | 28 3 15 17 51
+
+14 28 31 40 | 3 15 17 51
+
+3 14 28 31 40 | 15 17 51
+
+3 14 15 28 31 40 | 17 51
+
+3 14 15 17 28 31 40 | 51
+
+3 14 15 17 28 31 40 51 |
+
+---
+
+3 14 15 17 28 31 40 51
 
 ### 7
 
-<!-- TODO -->
+Consider we partition around one of the elements 28
+
+Make it so that all elements that come before 28 appear before it in any order, and make sure all the elements after 28 come after it in any order
+
+14 40 31 | 28 | 3 15 17 51
+
+->
+
+14 3 15 17 | 28 | 31 51 40
+
+^ Partition one - from there, we would go to each subarray recursively and keep partitioning until the elements were all ordered
 
 ## Homework
 
 ### 8
 
-<!-- TODO -->
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+[0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 01, 00, 00, 00, 00, 01, 00, 01]
+[0, 0, 1, 2, 2, 2, 2, 2, 3, 4, 05, 05, 05, 05, 05, 06, 06, 07]
+[0, 0, 0, 1, 2, 2, 2, 2, 2, 3, 04, 05, 05, 05, 05, 05, 06, 06]
+
+[2, 3, 8, 9, 10, 15, 17]
 
 ### 9
 
