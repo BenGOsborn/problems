@@ -131,7 +131,9 @@ Since n(n + 1) / 2 <= cn^2 where c = 10, and n(n + 1) / 2 >= cn^2 where n = 1, t
 
 ### 13
 
-<!-- TODO -->
+If we can determine the times in which insertion sort beats merge sort for the given size, we can have the function instead use the inersertion sort algorithm instead of merge sort
+
+Apparently when 8n^2 < 64nlgn
 
 ### 14
 
