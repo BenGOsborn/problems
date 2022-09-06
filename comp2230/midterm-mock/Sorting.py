@@ -35,8 +35,46 @@ def quick_sort(arr, i, j):
     pass
 
 
+def merge(arr1, arr2):
+    i = 0
+    j = 0
+
+    out = []
+
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] < arr2[j]:
+            out.append(arr1[i])
+            i += 1
+        else:
+            out.append(arr2[j])
+            j += 1
+
+    while i < len(arr1):
+        out.append(arr1[i])
+        i += 1
+
+    while j < len(arr2):
+        out.append(arr2[j])
+        j += 1
+
+    return out
+
+
+def merge_sort(arr):
+    if len(arr) == 1:
+        return arr
+
+    mid = len(arr) // 2
+
+    sorted_l = merge_sort(arr[:mid])
+    sorted_r = merge_sort(arr[mid:])
+
+    return merge(sorted_l, sorted_r)
+
+
 arr = [1, 5, 3, 2, 2, 3, 8, 10, 4, 6]
 
-quick_sort(arr, 0, len(arr) - 1)
+# quick_sort(arr, 0, len(arr) - 1)
+# print(arr)
 
-print(arr)
+print(merge_sort(arr))
