@@ -49,3 +49,15 @@ Worst case where every hash matches the specified hash, out loop loops n - m + 1
 From there, if our hashes collide each time, we have to do m searches for each index we land on in the outerloop
 
 Therefore, we have O(m(n - m + 1)) worst case
+
+## Question 2
+
+## 2.1
+
+[p, a, p, p, a, r]
+[0, 1, 2, 3, 4, 5]
+[0, 0, 1, 1, 2, 0]
+
+[a, b, a, b, b, c, a, b, a, b]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 0, 1, 2, 0, 0, 1, 2, 3, 4]
