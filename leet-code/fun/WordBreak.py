@@ -6,3 +6,5 @@
 # - When we terminate, if we terminate at the end of a trie loop, we will return true, otherwise we will return false
 
 # Time complexity: O(n + k * m) (where k is the maximum size of a word in the dict and m is the size of the dict) | Space complexity: O(k * m)
+
+# ALTERNATVIE: Dynamic programming - https://youtu.be/Sx9NNgInc3A
