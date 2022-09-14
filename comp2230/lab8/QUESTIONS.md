@@ -9,7 +9,7 @@ Window size = 3
 
 P[i] = {1: 0, 2: 1}
 
-1.1.
+## 1.1.
 
 Prime no = 2
 
@@ -26,7 +26,7 @@ Compare; matches. Terminate
 
 We used 2 comparisons
 
-1.2.
+## 1.2.
 
 Prime no = 5
 
@@ -43,7 +43,7 @@ Compare; matches. Terminate
 
 We used 1 comparison
 
-1.3.
+## 1.3.
 
 Worst case where every hash matches the specified hash, out loop loops n - m + 1 times, as this is the maximum index before out pattern goes over the end of the search string
 From there, if our hashes collide each time, we have to do m searches for each index we land on in the outerloop
