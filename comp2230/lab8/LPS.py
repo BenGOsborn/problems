@@ -8,13 +8,13 @@ def computeLPSArray(pat, lps):
             ln += 1
             lps[i] = ln
             i += 1
-        else:
-            if ln != 0:
-                ln = lps[ln-1]
 
-            else:
-                lps[i] = 0
-                i += 1
+        elif ln != 0:
+            ln = lps[ln-1]
+
+        else:
+            lps[i] = 0
+            i += 1
 
 
 pat = "pappar"
