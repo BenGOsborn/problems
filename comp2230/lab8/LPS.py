@@ -1,8 +1,6 @@
 # https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
 def computeLPSArray(pat, lps):
     ln = 0
-
-    lps[0]
     i = 1
 
     while i < len(pat):
