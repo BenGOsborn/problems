@@ -24,27 +24,22 @@ n = len(values)
 
 cache = [[-1 for _ in range(weight + 1)] for _ in range(n + 1)]
 
-hits = 0
-
 
 def knapsack(weights, values, weight, n):
-    global hits
 
     if n == 0 or weight == 0:
         return 0
 
     if cache[n][weight] != -1:
-        hits -= 1
-    elif weights[n - 1] <= weight:
+        return cache[n][weight]
+
+    if weights[n - 1] <= weight:
         cache[n][weight] = max(values[n - 1] + knapsack(weights, values, weight -
                                weights[n - 1], n - 1), knapsack(weights, values, weight, n - 1))
     else:
         cache[n][weight] = knapsack(weights, values, weight, n - 1)
 
-    hits += 1
-
     return cache[n][weight]
 
 
 print(knapsack(weights, values, weight, n))
-print(hits)
