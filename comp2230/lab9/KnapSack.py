@@ -26,7 +26,6 @@ cache = [[-1 for _ in range(weight + 1)] for _ in range(n + 1)]
 
 
 def knapsack(weights, values, weight, n):
-
     if n == 0 or weight == 0:
         return 0
 
