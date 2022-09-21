@@ -14,6 +14,8 @@
 
 ### Question 8
 
+-   Since the base cases only return 0 or 1, and the fib(n) relies on a summation, it means that fib(n) base case computations must have occured to be able to generate the number fib(n)
+
 ## Extras
 
 ### Question 9
