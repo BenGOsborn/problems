@@ -2,7 +2,7 @@
 # - Record the weight from each node to the next node inside of the vertex
 # - If we get to a cycle, subtract the cumulative weight from the last node to the original vertex entry weight - if it is negative, we have a negative cycle, else continue
 # - If we can't find anything, return false
-
+# Time: O(|v| + |e|) | Space: O(|V|)
 
 def graph_negative_cycle_rec(entry, prev_weight, graph, cum_weights):
     if entry in cum_weights:
