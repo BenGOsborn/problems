@@ -1,3 +1,16 @@
+# def word_break_h(self, current, string, word_dict, cache):
+#     if len(current) > len(string):
+#         return False
+#     elif current == string:
+#         return True
+
+#     for word in word_dict:
+#         out = self.word_break_h(current + word, string, word_dict, cache)
+#         if out:
+#             return True
+
+#     return False
+
 # Algorithm
 
 # - Take all of the word dictionaries and add them to a single Trie structure
@@ -13,18 +26,10 @@
 # - Build a tree featuring the different words until the lengths match or we have a word out of place
 # - For each word we add, we just need to check if the current word matches what we require, and then we can move on to the next part and so on
 
+# **** For a dynamic programming problem, we will need to get the current length, find a match for it, and then return it if and only if it matches
+
 class Solution:
-    def word_break_h(self, current, string, word_dict, cache):
-        if len(current) > len(string):
-            return False
-        elif current == string:
-            return True
-
-        for word in word_dict:
-            out = self.word_break_h(current + word, string, word_dict, cache)
-            if out:
-                return True
-
+    def word_break_h(self, string, word_dict, cache):
         return False
 
     def wordBreak(self, s, wordDict):
