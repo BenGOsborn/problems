@@ -3,13 +3,10 @@
 # - If we get to a cycle, subtract the cumulative weight from the last node to the original vertex entry weight - if it is negative, we have a negative cycle, else continue
 # - If we can't find anything, return false
 
-from math import inf
-
 
 def graph_negative_cycle_rec(entry, prev_weight, graph, cum_weights):
     if entry in cum_weights:
         if prev_weight - cum_weights[entry] < 0:
-            print(entry, prev_weight, cum_weights)
             return True
         return False
 
@@ -28,9 +25,10 @@ def graph_negative_cycle(graph):
     cum_weights = {}
 
     for elem in graph:
-        out = graph_negative_cycle_rec(elem, 0, graph, cum_weights)
-        if out:
-            return True
+        if elem not in cum_weights:
+            out = graph_negative_cycle_rec(elem, 0, graph, cum_weights)
+            if out:
+                return True
 
     return False
 
