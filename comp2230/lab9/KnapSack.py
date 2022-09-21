@@ -2,8 +2,14 @@ def encode():
     pass
 
 
+total_calls = 0
+
+
 def knapsack(current_value, current_weight, remaining, max_weight):
     current_max = current_value
+
+    global total_calls
+    total_calls += 1
 
     for i, elem in enumerate(remaining):
         new_weight = current_weight + elem[0]
@@ -22,3 +28,4 @@ def knapsack(current_value, current_weight, remaining, max_weight):
 available = [(2, 5), (3, 8), (1, 7), (2, 15)]
 weight = 5
 print(knapsack(0, 0, available, weight))
+print(total_calls)
