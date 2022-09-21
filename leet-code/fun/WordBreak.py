@@ -29,15 +29,32 @@
 # **** For a dynamic programming problem, we will need to get the current length, find a match for it, and then return it if and only if it matches
 
 class Solution:
-    def word_break_h(self, string, word_dict, cache):
+    def word_break_h(self, n, string, word_dict, cache):
+        print("Entry", n)
+
+        if n > len(string):
+            return False
+        if n == len(string) - 1:
+            return True
+
+        for elem in word_dict:
+            if self.word_break_h(n + len(elem), string, word_dict, cache):
+                if elem == string[n:n+len(elem)]:
+                    return True
+
+                return True
+
         return False
 
     def wordBreak(self, s, wordDict):
-        return self.word_break_h("", s, wordDict, {})
+        return self.word_break_h(0, s, wordDict, {})
 
 
-tests = [("leetcode", ["leet", "code"]), ("applepenapple", [
-    "apple", "pen"]), ("catsandog", ["cats", "dog", "sand", "and", "cat"])]
+tests = [
+    # ("leetcode", ["leet", "code"]),
+    ("applepenapple", ["apple", "pen"]),
+    # ("catsandog", ["cats", "dog", "sand", "and", "cat"])
+]
 
 for test in tests:
     print(Solution().wordBreak(test[0], test[1]))
