@@ -26,24 +26,24 @@
 # - Build a tree featuring the different words until the lengths match or we have a word out of place
 # - For each word we add, we just need to check if the current word matches what we require, and then we can move on to the next part and so on
 
-# **** For a dynamic programming problem, we will need to get the current length, find a match for it, and then return it if and only if it matches
-
 class Solution:
     def word_break_h(self, n, string, word_dict, cache):
-        print("Entry", n)
+        if n in cache:
+            return cache[n]
 
         if n > len(string):
+            cache[n] = False
             return False
-        if n == len(string) - 1:
+        if n == len(string):
+            cache[n] = True
             return True
 
         for elem in word_dict:
-            if self.word_break_h(n + len(elem), string, word_dict, cache):
-                if elem == string[n:n+len(elem)]:
-                    return True
-
+            if self.word_break_h(n + len(elem), string, word_dict, cache) and elem == string[n:n+len(elem)]:
+                cache[n] = True
                 return True
 
+        cache[n] = False
         return False
 
     def wordBreak(self, s, wordDict):
@@ -51,9 +51,9 @@ class Solution:
 
 
 tests = [
-    # ("leetcode", ["leet", "code"]),
+    ("leetcode", ["leet", "code"]),
     ("applepenapple", ["apple", "pen"]),
-    # ("catsandog", ["cats", "dog", "sand", "and", "cat"])
+    ("catsandog", ["cats", "dog", "sand", "and", "cat"])
 ]
 
 for test in tests:
