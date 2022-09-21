@@ -30,6 +30,8 @@ Using our inductive hypothesis, we know that fib(k) and fib(k - 1) result in the
 
 Therefore, by summing these number of calls together, we get fib(k + 1) calls, therefore the proof is complete
 
+(note this theory only holds for the base case of 0, 0 and 1, 0)
+
 ## Extras
 
 ### Question 9
