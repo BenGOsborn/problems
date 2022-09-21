@@ -14,8 +14,21 @@
 # - For each word we add, we just need to check if the current word matches what we require, and then we can move on to the next part and so on
 
 class Solution:
+    def word_break_h(self, current, string, word_dict, cache):
+        if len(current) > len(string):
+            return False
+        elif current == string:
+            return True
+
+        for word in word_dict:
+            out = self.word_break_h(current + word, string, word_dict, cache)
+            if out:
+                return True
+
+        return False
+
     def wordBreak(self, s, wordDict):
-        pass
+        return self.word_break_h("", s, wordDict, {})
 
 
 tests = [("leetcode", ["leet", "code"]), ("applepenapple", [
