@@ -8,3 +8,18 @@
 # Time complexity: O(n + k * m) (where k is the maximum size of a word in the dict and m is the size of the dict) | Space complexity: O(k * m)
 
 # ALTERNATVIE: Dynamic programming - https://youtu.be/Sx9NNgInc3A
+
+# Algorithm (dynamic programming)
+# - Build a tree featuring the different words until the lengths match or we have a word out of place
+# - For each word we add, we just need to check if the current word matches what we require, and then we can move on to the next part and so on
+
+class Solution:
+    def wordBreak(self, s, wordDict):
+        pass
+
+
+tests = [("leetcode", ["leet", "code"]), ("applepenapple", [
+    "apple", "pen"]), ("catsandog", ["cats", "dog", "sand", "and", "cat"])]
+
+for test in tests:
+    print(Solution().wordBreak(test[0], test[1]))
