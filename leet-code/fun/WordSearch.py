@@ -1,10 +1,10 @@
 class Solution:
     def dfs(self, board, word, i, j, n):
-        if n == len(word) - 1:
-            return True
-
         if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or board[i][j] == "#" or board[i][j] != word[n]:
             return False
+
+        if n == len(word) - 1:
+            return True
 
         temp = board[i][j]
         board[i][j] = "#"
@@ -19,6 +19,13 @@ class Solution:
         return res
 
     def exist(self, board, word):
+        s = ""
+        for row in board:
+            s += "".join(row)
+        for i in word:
+            if i not in s:
+                return False
+
         for i in range(len(board)):
             for j in range(len(board[i])):
                 if self.dfs(board, word, i, j, 0):
