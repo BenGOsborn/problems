@@ -5,7 +5,6 @@ class Solution:
 
         if board[i][j] == "#":
             return False
-
         if board[i][j] != word[n]:
             return False
         if n == len(word) - 1:
