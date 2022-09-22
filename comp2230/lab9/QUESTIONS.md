@@ -155,6 +155,8 @@ C_4 = {1, 2, 3}, R_4 = {}, C_4 x R_4 = {}
 
 ### Question 6
 
+(Repeat same process as above)
+
 ### Question 8
 
 Since the base cases only return 0 or 1, and the fib(n) relies on a summation or previous values alone, it means that fib(n) base case computations must have occured to be able to generate the number fib(n)
@@ -178,6 +180,8 @@ Therefore, by summing these number of calls together, we get fib(k + 1) calls, t
 ## Extras
 
 ### Question 9
+
+Map to adjacency matrix and perform same process as above
 
 ### Question 10
 
