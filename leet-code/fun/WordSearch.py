@@ -3,6 +3,10 @@ class Solution:
         return f"{i},{j}"
 
     def dfs(self, board, word, i, j, n, seen):
+        print(word[n], i, j, board[i][j])
+
+        # **** IT NEEDS RECURSIVE BACKTRACKING - IT COULD HAVE EXPLORED A PATH WHICH IS INCORRECT
+
         encoded = self.encode(i, j)
         if encoded in seen:
             return False
