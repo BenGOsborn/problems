@@ -1,3 +1,6 @@
+hits = 0
+
+
 class Solution:
     def dfs(self, board, word, i, j, n):
         if not (i >= 0 and i < len(board) and j >= 0 and j < len(board[0])):
@@ -9,6 +12,9 @@ class Solution:
             return False
         if n == len(word) - 1:
             return True
+
+        global hits
+        hits += 1
 
         temp = board[i][j]
         board[i][j] = "#"
@@ -42,3 +48,5 @@ tests = [
 
 for test in tests:
     print(Solution().exist(*test))
+
+print(hits)
