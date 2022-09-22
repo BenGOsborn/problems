@@ -147,3 +147,7 @@ for j = 1 to n {
 }
 
 ### Question 12
+
+It is able to do so as it relies on looking at the relationship between the incoming and the outgoing edges for particular nodes, and is then able to add the appropriate transitive edges which it can do simply in place. No additional memory is required for this as it all happens within the same matrix which contains all the relevent information.
+
+The time complexity of Warshall's is O(n ^ 3), as it requires n time for the outer loop, and at most n^2 time for each iteration to perform the inplace update
