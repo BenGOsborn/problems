@@ -7,12 +7,12 @@ class Solution:
         if encoded in seen:
             return False
 
-        seen[encoded] = True
-
         if board[i][j] != word[n]:
             return False
-        elif n == len(word) - 1:
+        if n == len(word) - 1:
             return True
+
+        seen[encoded] = True
 
         if i > 0 and i < len(board) and self.dfs(board, word, i - 1, j, n + 1, seen):
             return True
@@ -38,7 +38,8 @@ tests = [
     # ([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "SEE"),
     # ([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCB"),
     # ([["a"]], "a"),
-    ([["a", "b"], ["c", "d"]], "cdba")
+    # ([["a", "b"], ["c", "d"]], "cdba"),
+    ([["A", "B", "C", "E"], ["S", "F", "E", "S"], ["A", "D", "E", "E"]], "ABCESEEEFS")
 ]
 
 for test in tests:
