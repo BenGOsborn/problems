@@ -1,31 +1,22 @@
-hits = 0
-
-
 class Solution:
     def dfs(self, board, word, i, j, n):
-        if not (i >= 0 and i < len(board) and j >= 0 and j < len(board[0])):
-            return False
-
-        if board[i][j] == "#":
-            return False
-        if board[i][j] != word[n]:
-            return False
         if n == len(word) - 1:
             return True
 
-        global hits
-        hits += 1
+        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or board[i][j] == "#" or board[i][j] != word[n]:
+            return False
 
         temp = board[i][j]
         board[i][j] = "#"
 
-        for x, y in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
-            if self.dfs(board, word, i + y, j + x, n + 1):
-                return True
+        res = self.dfs(board, word, i + 1, j, n + 1) or \
+            self.dfs(board, word, i - 1, j, n + 1) or \
+            self.dfs(board, word, i, j + 1, n + 1) or \
+            self.dfs(board, word, i, j - 1, n + 1)
 
         board[i][j] = temp
 
-        return False
+        return res
 
     def exist(self, board, word):
         for i in range(len(board)):
@@ -48,5 +39,3 @@ tests = [
 
 for test in tests:
     print(Solution().exist(*test))
-
-print(hits)
