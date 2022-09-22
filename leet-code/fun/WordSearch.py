@@ -9,10 +9,10 @@ class Solution:
 
         seen[encoded] = True
 
-        if n == len(word):
-            return True
         if board[i][j] != word[n]:
             return False
+        elif n == len(word) - 1:
+            return True
 
         if i > 0 and i < len(board) and self.dfs(board, word, i - 1, j, n + 1, seen):
             return True
@@ -35,8 +35,10 @@ class Solution:
 
 
 tests = [
-    ([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "SEE"),
-    ([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCB")
+    # ([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "SEE"),
+    # ([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCB"),
+    # ([["a"]], "a"),
+    ([["a", "b"], ["c", "d"]], "cdba")
 ]
 
 for test in tests:
