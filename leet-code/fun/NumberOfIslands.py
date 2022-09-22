@@ -9,16 +9,15 @@ class Solution:
         queue = [[i, j]]
 
         while len(queue):
-            popped = queue.pop(0)
-            print(popped)
+            new_i, new_j = queue.pop(0)
 
-            if popped[0] < 0 or popped[0] >= len(grid) or popped[1] < 0 or popped[1] >= len(grid[0]) or grid[i][j] == "#" or grid[i][j] == "0":
+            if new_i < 0 or new_i >= len(grid) or new_j < 0 or new_j >= len(grid[0]) or grid[new_i][new_j] == "#" or grid[new_i][new_j] == "0":
                 continue
 
-            grid[i][j] = "#"
+            grid[new_i][new_j] = "#"
 
             for y, x in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
-                queue.append([i + y, j + x])
+                queue.append([new_i + y, new_j + x])
 
     def numIslands(self, grid):
         islands = 0
@@ -39,12 +38,12 @@ tests = [
         ["1", "1", "0", "0", "0"],
         ["0", "0", "0", "0", "0"]
     ], 1),
-    # ([
-    #     ["1", "1", "0", "0", "0"],
-    #     ["1", "1", "0", "0", "0"],
-    #     ["0", "0", "1", "0", "0"],
-    #     ["0", "0", "0", "1", "1"]
-    # ], 3),
+    ([
+        ["1", "1", "0", "0", "0"],
+        ["1", "1", "0", "0", "0"],
+        ["0", "0", "1", "0", "0"],
+        ["0", "0", "0", "1", "1"]
+    ], 3),
 ]
 
 for grid, sol in tests:
