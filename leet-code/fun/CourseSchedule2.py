@@ -1,4 +1,8 @@
 class Solution:
+    def topological_sort(self, start, graph, current, seen):
+        # **** We need to consider the edge case where we have a cycle
+        pass
+
     def findOrder(self, numCourses, prerequisites):
         graph = {}
         for elem in prerequisites:
