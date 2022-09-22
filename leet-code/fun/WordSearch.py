@@ -6,6 +6,7 @@ class Solution:
         print(word[n], i, j, board[i][j])
 
         # **** IT NEEDS RECURSIVE BACKTRACKING - IT COULD HAVE EXPLORED A PATH WHICH IS INCORRECT
+        # **** I need to readjust the path if this does not work
 
         encoded = self.encode(i, j)
         if encoded in seen:
