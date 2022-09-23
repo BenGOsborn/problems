@@ -11,10 +11,14 @@ class Solution:
                 fast = nums[fast]
 
             if slow == fast:
-                return slow
+                return nums[slow]
 
 
-tests = [[1, 3, 4, 2, 2], [3, 1, 3, 4, 2]]
+tests = [
+    [1, 3, 4, 2, 2],
+    [3, 1, 3, 4, 2],
+    [2, 5, 9, 6, 9, 3, 8, 9, 7, 1]
+]
 
 for test in tests:
     print(Solution().findDuplicate(test))
