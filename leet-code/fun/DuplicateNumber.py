@@ -9,11 +9,12 @@ class Solution:
 
         while True:
             slow = nums[slow]
-            for _ in range(2):
-                fast = nums[fast]
+            fast = nums[nums[fast]]
 
             if slow == fast:
-                return nums[slow]
+                break
+
+        # **** We have to actually loop through this until we find the node at the end - https://youtu.be/wjYnzkAhcNk
 
 
 tests = [
