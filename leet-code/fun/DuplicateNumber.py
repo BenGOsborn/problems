@@ -1,9 +1,5 @@
 class Solution:
     def findDuplicate(self, nums):
-        # We don't have to worry about nums[i] == i because it means we will never be able to get to this node unless we start on it, which we won't as 0 is not included and we start on 0
-
-        # **** There is some problem with this but I do not know where - fix it later (https://leetcode.com/problems/find-the-duplicate-number/submissions/)
-
         slow = 0
         fast = 0
 
@@ -14,7 +10,12 @@ class Solution:
             if slow == fast:
                 break
 
-        # **** We have to actually loop through this until we find the node at the end - https://youtu.be/wjYnzkAhcNk
+        slow2 = 0
+        while slow != slow2:
+            slow = nums[slow]
+            slow2 = nums[slow2]
+
+        return slow
 
 
 tests = [
