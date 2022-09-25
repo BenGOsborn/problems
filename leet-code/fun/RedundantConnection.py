@@ -18,6 +18,8 @@ class Solution:
     def findRedundantConnection(self, edges):
         graph = {}
 
+        # **** Use an N^2 adjacency matrix that contains 1 if an element can be accessed from another element and 0 if it cannot - return if we encounter two 1's (linear time)
+
         for edge in edges:
             if self.exists(graph, edge[0], edge[1], {}):
                 return edge
