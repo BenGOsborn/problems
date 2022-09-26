@@ -17,11 +17,12 @@ class Solution:
         # **** I also need to keep track of where the max pointer was
         # **** The tricky part is knowing when to update the pointer
 
-        while i < j:
-            if height[i] > height[i_max]:
-                i_max = i
-            if height[j] > height[j_max]:
-                j_max = j
+        while j >= 0 and i < len(height):
+            dist_i = i - j_max
+            dist_j = i_max - j
+
+            container_i = dist_i * max(height[i], height[j_max])
+            container_j = dist_j * max(height[i_max], height[j])
 
             i += 1
             j -= 1
