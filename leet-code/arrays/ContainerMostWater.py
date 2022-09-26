@@ -7,11 +7,24 @@
 
 class Solution:
     def maxArea(self, height):
-        start = 0
-        end = len(height) - 1
-        start_max = -1
-        end_max = -1
+        i = 0
+        j = len(height) - 1
+        i_max = i
+        j_max = j
+
         max_container = -1
+
+        # **** I also need to keep track of where the max pointer was
+        # **** The tricky part is knowing when to update the pointer
+
+        while i < j:
+            if height[i] > height[i_max]:
+                i_max = i
+            if height[j] > height[j_max]:
+                j_max = j
+
+            i += 1
+            j -= 1
 
 
 tests = [
