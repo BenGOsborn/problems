@@ -9,23 +9,18 @@ class Solution:
     def maxArea(self, height):
         i = 0
         j = len(height) - 1
-        i_max = i
-        j_max = j
+        max_container = 0
 
-        max_container = -1
+        while i < j:
+            max_container = max(max_container, (j - i) *
+                                min(height[i], height[j]))
 
-        # **** I also need to keep track of where the max pointer was
-        # **** The tricky part is knowing when to update the pointer
+            if height[i] < height[j]:
+                i += 1
+            else:
+                j -= 1
 
-        while j >= 0 and i < len(height):
-            dist_i = i - j_max
-            dist_j = i_max - j
-
-            container_i = dist_i * max(height[i], height[j_max])
-            container_j = dist_j * max(height[i_max], height[j])
-
-            i += 1
-            j -= 1
+        return max_container
 
 
 tests = [
