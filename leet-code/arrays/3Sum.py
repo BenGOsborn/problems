@@ -24,21 +24,30 @@ class Solution:
             prev_i = None
             prev_j = None
 
-            # **** We need some way of skipping duplicate sections that we have previously just encountered
-
             pivot = nums[pivot_index]
             target = -pivot
 
             while i < j:
+                if nums[i] == prev_i:
+                    i += 1
+                    continue
+                if nums[j] == prev_j:
+                    j -= 1
+                    continue
+
                 sm = nums[i] + nums[j]
 
                 if sm == target:
                     out.append([pivot, nums[i], nums[j]])
+                    prev_i = nums[i]
+                    prev_j = nums[j]
                     i += 1
                     j -= 1
                 elif sm > target:
+                    prev_j = nums[j]
                     j -= 1
                 else:
+                    prev_i = nums[i]
                     i += 1
 
             pivot_index += 1
