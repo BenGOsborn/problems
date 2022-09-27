@@ -33,6 +33,10 @@ class Solution:
                 return self.bin_search(nums, target, mid + 1, j)
 
             return self.bin_search(nums, target, i, mid - 1)
+        else:  # i > mid, mid > j
+            if target > nums[mid]:
+                return self.bin_search(nums, target, i, mid - 1)
+            return self.bin_search(nums, target, mid + 1, j)
 
     def search(self, nums, target):
         return self.bin_search(nums, target, 0, len(nums) - 1)
@@ -44,7 +48,10 @@ tests = [
     (([1], 0), -1),
     (([4, 5, 6, 7, 8, 1, 2, 3], 8), 4),
     (([6, 7, 8, 1, 2, 3, 4, 5], 8), 2),
-    (([1, 2, 3], 8), -1)
+    (([1, 2, 3], 8), -1),
+    (([3, 1], 0), -1),
+    (([1, 3], 3), 1),
+    (([3, 1], 1), 1)
 ]
 
 for test in tests:
