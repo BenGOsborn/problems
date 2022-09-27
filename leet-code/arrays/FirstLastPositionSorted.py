@@ -1,3 +1,6 @@
+# Algorithm
+# - We are going to do a binary search to find both the start and the end of the list - but how ?
+
 class Solution:
     def searchRange(self, nums, target):
         pass
