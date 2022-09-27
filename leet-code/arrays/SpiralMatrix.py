@@ -22,15 +22,15 @@ class Solution:
             if i == min_i - 1 and j == min_j:
                 min_j += 1
                 j += 1
-            elif i == min_i and j == max_j:
-                min_i += 1
-                i += 1
-            elif i == max_i and j == max_j:
-                max_j -= 1
-                j -= 1
             elif i == max_i and j == min_j:
                 max_i -= 1
                 i -= 1
+            elif i == max_i and j == max_j:
+                max_j -= 1
+                j -= 1
+            elif i == min_i and j == max_j:
+                min_i += 1
+                i += 1
             elif i == min_i:
                 j += 1
             elif j == max_j:
