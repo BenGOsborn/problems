@@ -1,7 +1,8 @@
 # Algorithm
 # - Sort the array O(nlogn)
 # - For all n elements in the array, use this to get the new target value, and then run the two sum for the rest of the array
-# - To not get duplicates, maybe we just keep an array of elements that we already have ?
+# - Once we select our pivot (starting from 0), we will run two sum for the REMAINDER of the array, as previous pivots have already covered all previous solutions using that number
+# - Pivots will not use the same number twice, and if we encounter a duplicate number we will skip over it
 
 class Solution:
     def threeSum(self, nums):
