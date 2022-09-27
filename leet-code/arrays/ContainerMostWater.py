@@ -1,10 +1,3 @@
-# Algorithm
-# - Use two pointers starting from either end to maximize the distance
-# - Keep track of the max on either side and the current container max
-# - If we find a new element that creates a larger array, we will update the size of the container, and then update the current pointers max
-# - If we find an element that is taller BUT closer together, we will update it, but keep the original max
-
-
 class Solution:
     def maxArea(self, height):
         i = 0
