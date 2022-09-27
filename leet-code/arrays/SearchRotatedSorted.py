@@ -10,7 +10,7 @@ class Solution:
 
         mid = (i + j) // 2
 
-        # **** Use a combination of (if mid greater than low and less than high for example to do the casing)
+        # **** Use a combination of (if mid greater than low and less than high for example to do the casing) - https://leetcode.com/problems/search-in-rotated-sorted-array/
 
         if nums[mid] == target:
             return mid
