@@ -5,7 +5,14 @@ class Solution:
         min_j = 0
         max_j = len(matrix[0]) - 1
 
-        # **** Now we need to access these sequentially, and then we just need to move the bounds up and such
+        i = 0
+        j = 0
+
+        # **** Now we need to access these sequentially, and then we just need to move the bounds up and such based on where it is located (use a for loop)
+
+        while max_i >= min_i and max_j >= min_j:
+            # **** Now we need a state machine in here for this
+            pass
 
 
 tests = [
