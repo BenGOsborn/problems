@@ -6,15 +6,51 @@
 
 class Solution:
     def threeSum(self, nums):
-        target = 0
-
         nums.sort()
+
+        pivot = None
+        pivot_index = 0
+
+        out = []
+
+        while pivot_index < len(nums):
+            if nums[pivot_index] == pivot:
+                pivot_index += 1
+                continue
+
+            i = pivot_index + 1
+            j = len(nums) - 1
+
+            prev_i = None
+            prev_j = None
+
+            # **** We need some way of skipping duplicate sections that we have previously just encountered
+
+            pivot = nums[pivot_index]
+            target = -pivot
+
+            while i < j:
+                sm = nums[i] + nums[j]
+
+                if sm == target:
+                    out.append([pivot, nums[i], nums[j]])
+                    i += 1
+                    j -= 1
+                elif sm > target:
+                    j -= 1
+                else:
+                    i += 1
+
+            pivot_index += 1
+
+        return out
 
 
 tests = [
     ([-1, 0, 1, 2, -1, -4], [[-1, -1, 2], [-1, 0, 1]]),
     ([0, 1, 1], []),
-    ([0, 0, 0], [[0, 0, 0]])
+    ([0, 0, 0], [[0, 0, 0]]),
+    ([-2, 0, 0, 2, 2], [[-2, 0, 2]])
 ]
 
 for test in tests:
