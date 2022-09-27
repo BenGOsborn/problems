@@ -9,19 +9,20 @@ class Solution:
             return -1
 
         mid = (i + j) // 2
-        print(i, j, mid, nums[i], nums[j], nums[mid], target)
+
+        # **** Use a combination of (if mid greater than low and less than high for example to do the casing)
 
         if nums[mid] == target:
             return mid
 
-        if target > nums[mid]:
-            return self.bin_search(nums, target, mid + 1, j)
-
-        # **** This gets interrupted by the previous one first - we need to consider these cases individually
-        if target >= nums[i]:
+        if nums[i] < nums[j]:
+            if target > mid:
+                return self.bin_search(nums, target, mid + 1, j)
             return self.bin_search(nums, target, i, mid - 1)
 
-        return self.bin_search(nums, target, mid + 1, j)
+        if target < nums[mid]:
+            return self.bin_search(nums, target, mid + 1, j)
+        return self.bin_search(nums, target, i, mid - 1)
 
     def search(self, nums, target):
         return self.bin_search(nums, target, 0, len(nums) - 1)
