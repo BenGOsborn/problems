@@ -1,23 +1,36 @@
 class Solution:
-    def binary_search(self, nums, target, i, j):
-        if i > j:
-            return -1
+    # def binary_search(self, nums, target, i, j):
+    #     if i > j:
+    #         return -1
 
-        mid = (i + j) // 2
+    #     mid = (i + j) // 2
 
-        if nums[mid] == target and (mid == len(nums) - 1 or nums[mid + 1] != target):
-            return mid
-        elif target >= nums[mid]:
-            return self.binary_search(nums, target, mid + 1, j)
-        else:
-            return self.binary_search(nums, target, i, mid - 1)
+    #     if nums[mid] == target and (mid == len(nums) - 1 or nums[mid + 1] != target):
+    #         return mid
+    #     elif target >= nums[mid]:
+    #         return self.binary_search(nums, target, mid + 1, j)
+    #     else:
+    #         return self.binary_search(nums, target, i, mid - 1)
+
+    # def twoSum(self, numbers, target):
+    #     for i, elem in enumerate(numbers):
+    #         index = self.binary_search(
+    #             numbers, target - elem, 0, len(numbers) - 1)
+    #         if index != -1 and i != index:
+    #             return [i + 1, index + 1]
 
     def twoSum(self, numbers, target):
-        for i, elem in enumerate(numbers):
-            index = self.binary_search(
-                numbers, target - elem, 0, len(numbers) - 1)
-            if index != -1 and i != index:
-                return [i + 1, index + 1]
+        left = 0
+        right = len(numbers) - 1
+
+        while left < right:
+            sm = numbers[left] + numbers[right]
+            if sm == target:
+                return [left + 1, right + 1]
+            elif sm > target:
+                right -= 1
+            else:
+                left += 1
 
 
 tests = [
