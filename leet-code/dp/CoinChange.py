@@ -10,26 +10,8 @@ class Solution:
         if amount == 0:
             return 0
 
-        # **** How do I handle the -1 case... ????
-
-        mn = -1
-        j = 0
-
         while amount >= coins[i]:
-            out = self.coin_change(coins, amount, i - 1)
-
-            if out != -1:
-                if mn == -1:
-                    mn = j + out
-                else:
-                    mn = min(mn, j + out)
-
-            j += 1
-            amount -= coins[i]
-
-        if mn == -1:
-            return -1
-        return mn
+            pass
 
     def coinChange(self, coins, amount):
         return self.coin_change(coins, amount, len(coins) - 1)
