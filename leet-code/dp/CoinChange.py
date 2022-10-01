@@ -1,37 +1,28 @@
 # https://www.youtube.com/watch?v=H9bfqozjoqs&t=469s, https://leetcode.com/problems/coin-change/
 
+# Algorithm
+# - Bottom up solution: for each amount we go to, we will calculate the minimum amount of coins needed to get to the next level
+
 class Solution:
-    def coin_change(self, coins, amount, cache):
-        if amount in cache:
-            return cache[amount]
-
-        if amount == 0:
-            cache[amount] = 0
-            return 0
-        if amount < 0:
-            cache[amount] = -1
-            return -1
-
-        num = -1
-
-        for elem in coins:
-            out = self.coinChange(coins, amount - elem)
-            if out == -1:
-                continue
-
-            if num == -1:
-                num = out
-            else:
-                num = min(num, out)
-
-        if num == -1:
-            cache[amount] = -1
-            return -1
-        cache[amount] = num + 1
-        return num + 1
-
     def coinChange(self, coins, amount):
-        return self.coin_change(coins, amount, {})
+        cache = [-1] * (amount + 1)
+
+        cache[0] = 0
+
+        for i in range(1, amount + 1):
+            mn = -1
+            for elem in coins:
+                if i >= elem:
+                    prev = cache[i - elem]
+                    if prev == -1:
+                        continue
+                    elif mn == -1:
+                        mn = 1 + prev
+                    else:
+                        mn = min(mn, 1 + prev)
+            cache[i] = mn
+
+        return cache[amount]
 
 
 tests = [
