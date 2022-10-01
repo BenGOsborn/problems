@@ -1,20 +1,35 @@
-# Algorithm
-# - Assuming that amounts is ordered in ascending order
-# - Start from the right part of the array, and decrement the amount by the given coin if possible, then move onto the next part recursively, keeping track of how many coins were used
-# - Return the amount that used the least coins - if we have -1, we must continue on to the next one
-# - Cache the result for each amount and coin index
-# - Base case if we hit i == -1 then we need to return -1, and if we hit amount = 0 then we return 0
-
 class Solution:
-    def coin_change(self, coins, amount, i):
-        if amount == 0:
-            return 0
+    def coin_change(self, coins, amount, cache):
+        if amount in cache:
+            return cache[amount]
 
-        while amount >= coins[i]:
-            pass
+        if amount == 0:
+            cache[amount] = 0
+            return 0
+        if amount < 0:
+            cache[amount] = -1
+            return -1
+
+        num = -1
+
+        for elem in coins:
+            out = self.coinChange(coins, amount - elem)
+            if out == -1:
+                continue
+
+            if num == -1:
+                num = out
+            else:
+                num = min(num, out)
+
+        if num == -1:
+            cache[amount] = -1
+            return -1
+        cache[amount] = num + 1
+        return num + 1
 
     def coinChange(self, coins, amount):
-        return self.coin_change(coins, amount, len(coins) - 1)
+        return self.coin_change(coins, amount, {})
 
 
 tests = [
