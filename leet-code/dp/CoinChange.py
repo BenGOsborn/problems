@@ -1,5 +1,3 @@
-# https://www.youtube.com/watch?v=H9bfqozjoqs&t=469s, https://leetcode.com/problems/coin-change/
-
 # Algorithm
 # - Bottom up solution: for each amount we go to, we will calculate the minimum amount of coins needed to get to the next level
 
