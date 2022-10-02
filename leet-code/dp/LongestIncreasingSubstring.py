@@ -5,7 +5,21 @@
 
 class Solution:
     def lengthOfLIS(self, nums):
-        cache = [0] * len(nums)
+        cache = [1] * len(nums)
+
+        mx = 1
+
+        for i in range(len(nums) - 1, -1, -1):
+            local_max = 1
+
+            for j in range(i + 1, len(nums)):
+                if nums[j] > nums[i]:
+                    local_max = max(local_max, 1 + cache[j])
+
+            cache[i] = local_max
+            mx = max(mx, local_max)
+
+        return mx
 
 
 tests = [
