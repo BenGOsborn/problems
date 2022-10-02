@@ -1,6 +1,11 @@
+# Algorithm
+# - Use a bottom up solution to build from the right to the left
+# - Keep track of the maximum increasing subsequence
+# - For each subsequence that we look at, look at if it is greater than the previous value, and if it is update it to the max
+
 class Solution:
     def lengthOfLIS(self, nums):
-        pass
+        cache = [0] * len(nums)
 
 
 tests = [
