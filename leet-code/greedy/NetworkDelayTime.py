@@ -6,9 +6,12 @@ from queue import PriorityQueue
 
 
 class Solution:
-    def networkDelayTime(self, times, n, k):
-        cache = [-1] * n  # Seen elements are not -1
+    def djikstras(self, graph, start, cache):
+        if start in graph:
+            while not graph[start].empty():
+                print(graph[start])
 
+    def networkDelayTime(self, times, n, k):
         graph = {}
         for time in times:
             if time[0] not in graph:
@@ -16,9 +19,8 @@ class Solution:
 
             graph[time[0]].put((time[2], time))
 
-        print(graph)
-
-        # **** We just need to explore every node, and then update the previous node with the new value if it has already been taken
+        cache = [-1] * n
+        self.djikstras(graph, k, cache)
 
         return min(cache)
 
