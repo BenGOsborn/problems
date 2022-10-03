@@ -3,44 +3,32 @@
 # - Return the minimum of the shortest paths (including -1)
 
 
+import collections
+import heapq
+
+
 class Solution:
     def networkDelayTime(self, times, n, k):
-        graph = {}
-        for time in times:
-            to_add = (time[2], time[1])
-            if time[0] not in graph:
-                graph[time[0]] = [to_add]
-            else:
-                graph[time[0]].append(to_add)
+        edges = collections.defaultdict(list)
+        for u, v, w in times:
+            edges[u].append((v, w))
 
-        cache = [-1] * n
-        cache[k - 1] = 0
+        heap = [(0, k)]
+        visited = set()
+        t = 0
 
-        visited = {}
+        while heap:
+            elem = heapq.heappop(heap)
 
-        for _ in range(n):
-            min_elem = -1
-            mn = -1
+            if elem[1] in visited:
+                continue
+            visited.add(elem[1])
+            t = max(t, elem[0])
 
-            for j in range(1, n + 1):
-                if cache[j - 1] == -1:
-                    continue
-                elif (mn == -1 or cache[j - 1] < mn) and j not in visited:
-                    mn = cache[j - 1]
-                    min_elem = j
+            for item in edges[elem[1]]:
+                heapq.heappush(heap, (elem[0] + item[1], item[0]))
 
-            visited[min_elem] = True
-
-            if min_elem in graph:
-                for elem in graph[min_elem]:
-                    updated = mn + elem[0]
-                    if cache[elem[1] - 1] != -1:
-                        updated = min(cache[elem[1] - 1], updated)
-                    cache[elem[1] - 1] = updated
-
-        if min(cache) == -1:
-            return -1
-        return max(cache)
+        return t if len(visited) == n else -1
 
 
 tests = [
