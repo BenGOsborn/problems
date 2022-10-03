@@ -2,7 +2,6 @@ import string
 
 
 class Solution:
-    # Rabin Karp
     def strStr(self, haystack, needle):
         if len(needle) > len(haystack):
             return -1
