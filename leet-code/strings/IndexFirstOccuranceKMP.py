@@ -1,5 +1,8 @@
 class Solution:
     def strStr(self, haystack, needle):
+        if len(needle) > len(haystack):
+            return -1
+
         table = self.build_table(needle)
         return table
 
@@ -10,9 +13,9 @@ class Solution:
         j = 0
         while i < len(string):
             if string[i] == string[j]:
-                pivot[i] = pivot[i - 1] + 1
-                i += 1
                 j += 1
+                pivot[i] = j
+                i += 1
             elif j != 0:
                 j = pivot[j - 1]
             else:
@@ -23,10 +26,12 @@ class Solution:
 
 
 tests = [
-    (("abxabcabcaby", "abcabya"), 6),
-    (("sadbutsad", "sad"), 0),
-    (("leetcode", "leeto"), -1),
-    (("hello", "ll"), 2),
+    # (("abxabcabcaby", "abcdabcabcx"), -1),
+    (("abxabcabcabyzzz", "jabcdabcjabcx"), -1),
+    # (("abxabcabcaby", "abcabya"), 6),
+    # (("sadbutsad", "sad"), 0),
+    # (("leetcode", "leeto"), -1),
+    # (("hello", "ll"), 2),
 ]
 
 for test in tests:
