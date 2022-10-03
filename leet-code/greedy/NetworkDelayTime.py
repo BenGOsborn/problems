@@ -31,8 +31,11 @@ class Solution:
             if cache[elem[1] - 1] != -1:
                 updated = min(cache[elem[1] - 1], updated)
             else:
+                # **** This line needs updating - we need to explore the 4 (which we are currently not doing)
                 pq.put((-elem[2], elem))
             cache[elem[1] - 1] = updated
+
+        print(cache)
 
         if min(cache) == -1:
             return -1
