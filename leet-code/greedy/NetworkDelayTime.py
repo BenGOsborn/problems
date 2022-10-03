@@ -6,23 +6,37 @@ from queue import PriorityQueue
 
 
 class Solution:
-    def djikstras(self, graph, start, cache):
-        if start in graph:
-            while not graph[start].empty():
-                print(graph[start])
-
     def networkDelayTime(self, times, n, k):
         graph = {}
         for time in times:
             if time[0] not in graph:
-                graph[time[0]] = PriorityQueue()
+                graph[time[0]] = [time]
+            else:
+                graph[time[0]].append(time)
 
-            graph[time[0]].put((time[2], time))
+        print(graph)
 
         cache = [-1] * n
-        self.djikstras(graph, k, cache)
 
-        return min(cache)
+        cache[k - 1] = 0
+        pq = PriorityQueue()
+        if k in graph:
+            for elem in graph[k]:
+                pq.put((elem[2], elem))
+
+        while not pq.empty():
+            elem = pq.get()[1]
+
+            updated = cache[elem[0] - 1] + elem[2]
+            if cache[elem[1] - 1] != -1:
+                updated = min(cache[elem[1] - 1], updated)
+            else:
+                pq.put((elem[2], elem))
+            cache[elem[1] - 1] = updated
+
+        if min(cache) == -1:
+            return -1
+        return max(cache)
 
 
 tests = [
