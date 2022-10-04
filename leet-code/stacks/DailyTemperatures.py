@@ -1,6 +1,16 @@
 class Solution:
     def dailyTemperatures(self, temperatures):
-        pass
+        stack = []
+        out = [0] * len(temperatures)
+
+        for i, elem in enumerate(temperatures):
+            while stack and temperatures[stack[-1]] < elem:
+                popped = stack.pop(-1)
+                out[popped] = i - popped
+
+            stack.append(i)
+
+        return out
 
 
 tests = [
