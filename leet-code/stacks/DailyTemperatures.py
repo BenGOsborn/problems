@@ -4,11 +4,11 @@ class Solution:
         out = [0] * len(temperatures)
 
         for i, elem in enumerate(temperatures):
-            while stack and temperatures[stack[-1]] < elem:
+            while stack and stack[-1][1] < elem:
                 popped = stack.pop(-1)
-                out[popped] = i - popped
+                out[popped[0]] = i - popped[0]
 
-            stack.append(i)
+            stack.append((i, elem))
 
         return out
 
