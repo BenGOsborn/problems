@@ -47,10 +47,6 @@ class Solution:
 
         return -1
 
-    # Knuth Morris Pratt
-    # def strStr(self, haystack, needle):
-    #     pass
-
 
 tests = [
     (("011010011001110", "101"), 2),
