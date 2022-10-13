@@ -30,4 +30,4 @@ tests = [
 ]
 
 for test in tests:
-    print(kmp_shift(test[0]))
+    kmp_shift(test[0])
